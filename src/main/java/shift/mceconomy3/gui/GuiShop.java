@@ -23,7 +23,7 @@ import shift.mceconomy3.packet.PacketShopButton;
 
 public class GuiShop extends GuiContainer {
 
-    private static final ResourceLocation merchantGuiTextures = new ResourceLocation("mceconomy2:textures/guis/villager.png");
+    private static final ResourceLocation merchantGuiTextures = new ResourceLocation("mceconomy3:textures/guis/villager.png");
 
     private IShop theIProductList;
     private GuiButtonMerchant nextProductButton;
@@ -210,7 +210,6 @@ public class GuiShop extends GuiContainer {
                 //this.drawItemStackTooltip(itemstack2, par1, par2);
                 this.renderToolTip(itemstack2, par1, par2);
             }
-
 
             GL11.glPopMatrix();
             GL11.glEnable(GL11.GL_LIGHTING);

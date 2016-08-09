@@ -21,11 +21,9 @@ public class MessagePlayerProperties implements IMessage, IMessageHandler<Messag
     }
 
     public MessagePlayerProperties(EntityPlayer entityPlayer,boolean init) {
-
-        this.data = new NBTTagCompound();
+    	this.data = MPManager.getEntityPropertieMP(entityPlayer).serializeNBT();
         data.setBoolean("init", init);
-        MPManager.getEntityPropertieMP(entityPlayer).saveNBTData(data);
-
+        //MPManager.getEntityPropertieMP(entityPlayer).saveNBTData(data);
     }
 
     @Override
@@ -41,7 +39,8 @@ public class MessagePlayerProperties implements IMessage, IMessageHandler<Messag
     @Override
     public IMessage onMessage(MessagePlayerProperties message, MessageContext ctx) {
         //Client側にIExtendedEntityPropertiesを渡す。
-    	MPManager.getEntityPropertieMP(MCEconomy3.proxy.getClientPlayer()).loadNBTData(message.data);
+    	MPManager.getEntityPropertieMP(MCEconomy3.proxy.getClientPlayer()).deserializeNBT(message.data);
+    	//MPManager.getEntityPropertieMP(MCEconomy3.proxy.getClientPlayer()).loadNBTData(message.data);
         //REPLYは送らないので、nullを返す。
         return null;
     }

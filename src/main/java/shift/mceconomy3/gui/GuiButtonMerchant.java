@@ -1,12 +1,12 @@
 package shift.mceconomy3.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class GuiButtonMerchant extends GuiButton
@@ -21,6 +21,7 @@ public class GuiButtonMerchant extends GuiButton
     {
         super(par1, par2, par3, 12, 19, "");
         this.mirrored = par4;
+
     }
 
     /**

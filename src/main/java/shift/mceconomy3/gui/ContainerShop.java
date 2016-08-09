@@ -1,7 +1,10 @@
 package shift.mceconomy3.gui;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -46,11 +49,12 @@ public class ContainerShop extends Container {
         return true;
     }
 
-    @Override
-    public ItemStack slotClick(int par1, int par2, int par3, EntityPlayer par4EntityPlayer) {
+    @Nullable
+    public ItemStack slotClick(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player)
+    {
         //System.out.println("slotClick");
         this.merchantInventory.resetSlots();
-        return super.slotClick(par1, par2, par3, par4EntityPlayer);
+        return super.slotClick(slotId, dragType, clickTypeIn, player);
     }
 
     @Override

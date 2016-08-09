@@ -6,8 +6,9 @@ import org.lwjgl.input.Keyboard;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.WorldRenderer;
+import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -47,7 +48,7 @@ public class HUDMP {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void onRenderGameOverlayEvent(RenderGameOverlayEvent.Pre event) {
 
-        if (event.type == ElementType.FOOD && mc.playerController.shouldDrawHUD()) {
+        if (event.getType() == ElementType.FOOD && mc.playerController.shouldDrawHUD()) {
             isRenderer = true;
         }
 
@@ -57,9 +58,8 @@ public class HUDMP {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void onRenderGameOverlayEvent(RenderGameOverlayEvent.Post event) {
 
-        int width = event.resolution.getScaledWidth();
-        int height = event.resolution.getScaledHeight();
-
+        int width = event.getResolution().getScaledWidth();
+        int height = event.getResolution().getScaledHeight();
 
         if (!Config.HUD) return;
 
@@ -103,6 +103,7 @@ public class HUDMP {
 
         mc.mcProfiler.startSection("money");
 
+        GlStateManager.enableBlend();
         bind(icons);
 
         int air = 0;
@@ -117,42 +118,53 @@ public class HUDMP {
             money = MPManager.getEntityPropertieMP(mc.thePlayer).getMp();
         }
 
+        //金持ち
+        int m = 0;
+        if (String.valueOf(money).length() == 8) {
+            m = -8;
+        } else if (String.valueOf(money).length() == 9) {
+            m = -16;
+        } else if (String.valueOf(money).length() == 10) {
+            m = -24;
+        }
+
         //if (money <= 10000000)
-        drawTexturedModalRect(left, top, 9, 0, 9, 9);
-        drawTexturedModalRect(left + 65, top, 0, 18, 9, 9);
-        drawTexturedModalRect(left + 74, top, 9, 18, 9, 9);
+        drawTexturedModalRect(left + m, top, 9, 0, 9, 9);//コイン
+        drawTexturedModalRect(left + 65, top, 0, 18, 9, 9);//M
+        drawTexturedModalRect(left + 74, top, 9, 18, 9, 9);//P
 
         left += 56;
 
-        for (int i = 1; i <= String.valueOf(money).length() && i <= 7; i += 1) {
+        for (int i = 1; i <= String.valueOf(money).length() && i <= 10; i += 1) {
             String s = String.valueOf(money).substring(String.valueOf(money).length() - i, String.valueOf(money).length() - i + 1);
             drawTexturedModalRect(left, top, 9 * Integer.parseInt(s), 9, 9, 9);
             left -= 8;
         }
 
         //お金持ちの処理
-        if (money >= 10000000) {
+        //        if (money >= 10000000) {
+        //
+        //            left = width / 2 + 9;
+        //            top = height - GuiIngameForge.right_height;//left_height-10+air;
+        //            GuiIngameForge.right_height += 10;
+        //
+        //            drawTexturedModalRect(left, top, 18, 18, 9, 9);
+        //            //drawTexturedModalRect(left + 65, top, 0, 18, 9, 9);
+        //            //drawTexturedModalRect(left + 74, top, 9, 18, 9, 9);
+        //
+        //            left += 56;
+        //
+        //            for (int i = 8; i <= String.valueOf(money).length(); i += 1) {
+        //                String s = String.valueOf(money).substring(String.valueOf(money).length() - i, String.valueOf(money).length() - i + 1);
+        //                drawTexturedModalRect(left, top, 9 * Integer.parseInt(s), 9, 9, 9);
+        //                left -= 8;
+        //            }
+        //
+        //        }
 
-            left = width / 2 + 9;
-            top = height - GuiIngameForge.right_height;//left_height-10+air;
-            GuiIngameForge.right_height += 10;
-
-            drawTexturedModalRect(left, top, 18, 18, 9, 9);
-            //drawTexturedModalRect(left + 65, top, 0, 18, 9, 9);
-            //drawTexturedModalRect(left + 74, top, 9, 18, 9, 9);
-
-            left += 56;
-
-            for (int i = 8; i <= String.valueOf(money).length(); i += 1) {
-                String s = String.valueOf(money).substring(String.valueOf(money).length() - i, String.valueOf(money).length() - i + 1);
-                drawTexturedModalRect(left, top, 9 * Integer.parseInt(s), 9, 9, 9);
-                left -= 8;
-            }
-
-        }
-
+        GlStateManager.disableBlend();
         mc.mcProfiler.endSection();
-        bind(Gui.icons);
+        bind(Gui.ICONS);
 
     }
 
@@ -160,6 +172,7 @@ public class HUDMP {
 
         mc.mcProfiler.startSection("addmoney");
 
+        GlStateManager.enableBlend();
         bind(icons);
 
         int air = -9;
@@ -252,8 +265,9 @@ public class HUDMP {
             GuiIngameForge.right_height += 10;
         }
 
+        GlStateManager.disableBlend();
         mc.mcProfiler.endSection();
-        bind(Gui.icons);
+        bind(Gui.ICONS);
 
     }
 
@@ -261,20 +275,19 @@ public class HUDMP {
         FMLClientHandler.instance().getClient().getTextureManager().bindTexture(res);
     }
 
-//    public static void drawTexturedModalRect(int par1, int par2, int par3, int par4, int par5, int par6) {
-//        float zLevel = -90.0F;
-//
-//        float f = 0.00390625F;
-//        float f1 = 0.00390625F;
-//        Tessellator tessellator = Tessellator.getInstance();
-//        tessellator.startDrawingQuads();
-//        tessellator.addVertexWithUV((par1 + 0), (par2 + par6), zLevel, ((par3 + 0) * f), ((par4 + par6) * f1));
-//        tessellator.addVertexWithUV((par1 + par5), (par2 + par6), zLevel, ((par3 + par5) * f), ((par4 + par6) * f1));
-//        tessellator.addVertexWithUV((par1 + par5), (par2 + 0), zLevel, ((par3 + par5) * f), ((par4 + 0) * f1));
-//        tessellator.addVertexWithUV((par1 + 0), (par2 + 0), zLevel, ((par3 + 0) * f), ((par4 + 0) * f1));
-//        tessellator.draw();
-//    }
+    /*public static void drawTexturedModalRect(int par1, int par2, int par3, int par4, int par5, int par6) {
+        float zLevel = -90.0F;
 
+        float f = 0.00390625F;
+        float f1 = 0.00390625F;
+        Tessellator tessellator = Tessellator.instance;
+        tessellator.startDrawingQuads();
+        tessellator.addVertexWithUV((par1 + 0), (par2 + par6), zLevel, ((par3 + 0) * f), ((par4 + par6) * f1));
+        tessellator.addVertexWithUV((par1 + par5), (par2 + par6), zLevel, ((par3 + par5) * f), ((par4 + par6) * f1));
+        tessellator.addVertexWithUV((par1 + par5), (par2 + 0), zLevel, ((par3 + par5) * f), ((par4 + 0) * f1));
+        tessellator.addVertexWithUV((par1 + 0), (par2 + 0), zLevel, ((par3 + 0) * f), ((par4 + 0) * f1));
+        tessellator.draw();
+    }*/
 
     public static void drawTexturedModalRect(int x, int y, int textureX, int textureY, int width, int height)
     {
@@ -283,7 +296,7 @@ public class HUDMP {
         float f = 0.00390625F;
         float f1 = 0.00390625F;
         Tessellator tessellator = Tessellator.getInstance();
-        WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+        VertexBuffer worldrenderer = tessellator.getBuffer();
         worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
         worldrenderer.pos((double)(x + 0), (double)(y + height), (double)zLevel).tex((double)((float)(textureX + 0) * f), (double)((float)(textureY + height) * f1)).endVertex();
         worldrenderer.pos((double)(x + width), (double)(y + height), (double)zLevel).tex((double)((float)(textureX + width) * f), (double)((float)(textureY + height) * f1)).endVertex();
@@ -295,8 +308,8 @@ public class HUDMP {
     @SubscribeEvent
     public void onItemTooltipEvent(ItemTooltipEvent event) {
 
-        ItemStack itemStack = event.itemStack;
-        List<String> toolTip = event.toolTip;
+        ItemStack itemStack = event.getItemStack();
+        List<String> toolTip = event.getToolTip();
 
         if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
             //toolTip.add("If press Shift , Status is displayed");

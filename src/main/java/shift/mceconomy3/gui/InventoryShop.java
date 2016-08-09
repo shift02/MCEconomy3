@@ -3,9 +3,9 @@ package shift.mceconomy3.gui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import shift.mceconomy3.api.MCEconomyAPI;
 import shift.mceconomy3.api.shop.IProduct;
 import shift.mceconomy3.api.shop.IShop;
@@ -99,10 +99,9 @@ public class InventoryShop implements IInventory {
         return false;
     }
 
-
-	@Override
-	public IChatComponent getDisplayName() {
-		return (IChatComponent)(this.hasCustomName() ? new ChatComponentText(this.getName()) : new ChatComponentTranslation(this.getName(), new Object[0]));
+    @Override
+	public ITextComponent getDisplayName() {
+		return (ITextComponent)(this.hasCustomName() ? new TextComponentString(this.getName()) : new TextComponentTranslation(this.getName(), new Object[0]));
 	}
 
     @Override
@@ -167,7 +166,6 @@ public class InventoryShop implements IInventory {
         this.currentRecipeIndex = par1;
         this.resetSlots();
     }
-
 
 
 

@@ -1,9 +1,9 @@
 package shift.mceconomy3;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map.Entry;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +12,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import shift.mceconomy3.api.event.PriceEvent;
+import shift.mceconomy3.api.purchase.IPurchaseItem;
+import shift.mceconomy3.api.purchase.PurchaseItemStack;
+import shift.mceconomy3.api.purchase.PurchaseOreDictionary;
 import shift.mceconomy3.api.shop.IProductList;
 import shift.mceconomy3.api.shop.IShop;
 import shift.mceconomy3.api.shop.IShopManager;
@@ -25,7 +28,11 @@ public class ShopManager implements IShopManager {
 
     private final ArrayList<IShop> shopList = new ArrayList<IShop>();
 
-    private static final HashMap<ItemStack, Integer> purchaseList = new HashMap<ItemStack, Integer>();
+    private static final ArrayList<IPurchaseItem> purchaseItems = new ArrayList<IPurchaseItem>();
+    private static IPurchaseItem cachedItem;
+    private static boolean hasSort = false;
+
+    private static PurchaseComparable purchaseComparable = new PurchaseComparable();
 
     private static final HashMap<Integer, Double> purchaseFluidList = new HashMap<Integer, Double>();
 
@@ -96,12 +103,12 @@ public class ShopManager implements IShopManager {
     public void openShopGui(int id, EntityPlayer player, World world, int x, int y, int z) {
 
         /*OpenShopGuiEvent event = new OpenShopGuiEvent(player, id, world, x, y, z);
-        
+
         if (MinecraftForge.EVENT_BUS.post(event))
         {
             return;
         }
-        
+
         if (event.getResult() == Result.ALLOW)
         {
             return ;
@@ -116,28 +123,64 @@ public class ShopManager implements IShopManager {
     }
 
     @Override
+    public void addPurchaseItem(IPurchaseItem purchaseItem) {
+        purchaseItems.add(purchaseItem);
+
+        this.hasSort = true;
+
+    }
+
+    @Override
     public void addPurchaseItem(ItemStack par1ItemStack, Integer par2Integer) {
-        purchaseList.put(par1ItemStack, par2Integer);
+        this.addPurchaseItem(new PurchaseItemStack(par1ItemStack, par2Integer));
+    }
+
+    @Override
+    public void addPurchaseItem(String par1String, Integer par2Integer) {
+        this.addPurchaseItem(new PurchaseOreDictionary(par1String, par2Integer));
     }
 
     @Override
     public int getPurchase(ItemStack item) {
+
         if (item == null) {
             return -2;
         }
 
-        Iterator iterator = this.purchaseList.entrySet().iterator();
-        Entry entry;
+        IPurchaseItem purchaseItem = null;
+        if (cachedItem != null && cachedItem.isMatch(item)) {
 
-        do {
-            if (!iterator.hasNext()) {
-                return -2;
+            purchaseItem = cachedItem;
+
+        } else {
+
+            if (this.hasSort) {
+                Collections.sort(purchaseItems, new PurchaseComparable());
+                hasSort = false;
             }
 
-            entry = (Entry) iterator.next();
-        } while (!this.func_151397_a(item, (ItemStack) entry.getKey()));
+            for (IPurchaseItem it : purchaseItems) {
 
-        int old = (Integer) entry.getValue();
+                if (it.isMatch(item)) {
+
+                    purchaseItem = it;
+
+                    if (it.getPriority() <= 5) {
+                        cachedItem = it;
+                    } else {
+                        cachedItem = null;
+                    }
+
+                    break;
+                }
+
+            }
+
+        }
+
+        if (purchaseItem == null) return -2;
+
+        int old = purchaseItem.getPrice(item);
 
         PriceEvent event = new PriceEvent(item, old);
         event.setNewPrice(old);
@@ -146,36 +189,34 @@ public class ShopManager implements IShopManager {
 
         if (old != event.getNewPrice()) return event.getNewPrice();
 
-        return (Integer) entry.getValue();
-
-    }
-
-    private boolean func_151397_a(ItemStack p_151397_1_, ItemStack p_151397_2_) {
-        return p_151397_2_.getItem() == p_151397_1_.getItem() && (p_151397_2_.getItemDamage() == 32767 || p_151397_2_.getItemDamage() == p_151397_1_.getItemDamage());
+        return old;
     }
 
     @Override
     public boolean hasPurchase(ItemStack item) {
-        return (this.getPurchase(item) != -1 && this.getPurchase(item) != -2);
+        int t = getPurchase(item);
+        return t != -1 && t != -2;
     }
 
     @Override
     public void addPurchaseFluid(Fluid fluid, double mp) {
         if (fluid == null) return;
-        purchaseFluidList.put(fluid.getID(), mp);
+        //purchaseFluidList.put(fluid.getID(), mp);
     }
 
     @Override
     public double getFluidPurchase(Fluid fluid) {
 
-        if (fluid == null) {
-            return -2;
-        }
-        if (!purchaseFluidList.containsKey(fluid.getID())) {
-            return -2;
-        }
+        //if (fluid == null) {
+        //    return -2;
+        //}
+        //if (!purchaseFluidList.containsKey(fluid.getID())) {
+        //    return -2;
+        //}
 
-        return purchaseFluidList.get(fluid.getID());
+    	return -1;
+
+        //return purchaseFluidList.get(fluid.getID());
     }
 
     @Override
@@ -207,6 +248,22 @@ public class ShopManager implements IShopManager {
     @Override
     public boolean hasEntityPurchase(Entity entity) {
         return (this.getEntityPurchase(entity) != -1 && this.getEntityPurchase(entity) != -2);
+    }
+
+    public static class PurchaseComparable implements Comparator<IPurchaseItem> {
+
+        @Override
+        public int compare(IPurchaseItem o1, IPurchaseItem o2) {
+
+            if (o1.getPriority() > o2.getPriority()) {
+                return 1;
+            } else if (o1.getPriority() < o2.getPriority()) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+
     }
 
 }

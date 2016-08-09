@@ -2,8 +2,13 @@ package shift.mceconomy3.event;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityInject;
+import net.minecraftforge.common.util.FakePlayer;
 import shift.mceconomy3.Config;
 import shift.mceconomy3.EntityPropertieMP;
+import shift.mceconomy3.MCEconomy3;
 import shift.mceconomy3.api.IMPManager;
 import shift.mceconomy3.packet.MessagePlayerProperties;
 import shift.mceconomy3.packet.PacketHandler;
@@ -13,6 +18,11 @@ public class MPManager implements IMPManager {
     private static final MPManager instance = new MPManager();
 
     public static final String STATUS = "mp";
+
+    public static final ResourceLocation r = new ResourceLocation(MCEconomy3.MODID, "EntityPropertieMP");
+
+    @CapabilityInject(EntityPropertieMP.class)
+    static Capability<EntityPropertieMP> MP_CAPABILITY = null;
 
     private MPManager() {
 
@@ -26,7 +36,7 @@ public class MPManager implements IMPManager {
 
     	if(p == null)return new EntityPropertieMP();
 
-        return (EntityPropertieMP) p.getExtendedProperties(STATUS);
+        return (EntityPropertieMP) p.getCapability(MP_CAPABILITY, null);
 
     }
 
@@ -153,7 +163,11 @@ public class MPManager implements IMPManager {
     }
 
     public static void sendPacket(EntityPlayer player) {
+
+        if (player instanceof FakePlayer) return;
+
         PacketHandler.INSTANCE.sendTo(new MessagePlayerProperties(player), (EntityPlayerMP) player);
+
     }
 
 }
