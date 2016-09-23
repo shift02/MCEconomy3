@@ -11,6 +11,24 @@ API to add the concept of economy in Minecraft
 
 Minecraftに経済の概念を追加するAPI
 
+##Dependency 依存関係(開発環境に追加する)
+
+Please describe the following in build.gradle
+
+build.gradleに以下を記述する
+
+```
+repositories {
+
+    maven { url 'https://shift02.github.io/maven/' }
+}
+
+dependencies {
+
+    compile 'shift.mceconomy3:mceconomy3:1.0.0:dev'
+}
+```
+
 ##License ライセンス
 
 [![MMPL_J](https://img.shields.io/badge/license-MMPL__%20J-blue.svg)](http://tsoft-web.com/nokiyen/minecraft/modding/MMPL_J)
