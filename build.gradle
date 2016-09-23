@@ -13,6 +13,8 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'maven'
+
 
 //ï∂éöÉRÅ[Éh
 tasks.withType(AbstractCompile)*.options*.encoding = tasks.withType(GroovyCompile)*.groovyOptions*.encoding = 'UTF-8'
@@ -25,8 +27,8 @@ plugins {
 }
 */
 version = "1.0.0"
-group= "shift.MCEconomy3" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "MCEconomy3"
+group= "shift.mceconomy3" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "mceconomy3"
 
 minecraft {
     version = "1.10.2-12.18.1.2011"
@@ -93,5 +95,13 @@ task devJar(type: Jar) {
  
 artifacts {
     archives devJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('/docs/maven'))
+        }
+    }
 }
 
