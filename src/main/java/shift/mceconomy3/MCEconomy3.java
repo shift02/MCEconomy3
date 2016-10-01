@@ -17,11 +17,13 @@ import shift.mceconomy3.packet.PacketHandler;
 import shift.mceconomy3.proxy.CommonProxy;
 import shift.mceconomy3.purchase.PurchaseManager;
 
-@Mod(modid = MCEconomy3.MODID, version = MCEconomy3.VERSION, dependencies = MCEconomy3.DEPENDENCY)
+@Mod(modid = MCEconomy3.MODID, version = MCEconomy3.VERSION, dependencies = MCEconomy3.DEPENDENCY, updateJSON = MCEconomy3.UPDATE_JSON)
 public class MCEconomy3 {
 
     public static final String MODID = "mceconomy3";
     public static final String VERSION = "1.0.0";
+
+    public static final String UPDATE_JSON = "https://shift02.github.io/MCEconomy3/Update.json";
 
     public static final String DEPENDENCY = "";//"before:SextiarySector";
 
