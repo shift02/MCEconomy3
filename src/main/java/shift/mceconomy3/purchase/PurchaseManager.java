@@ -15,92 +15,96 @@ import shift.mceconomy3.api.purchase.PurchaseItems;
 
 public class PurchaseManager {
 
-	public static PurchaseRegistry purchaseRegistry = new PurchaseRegistry();
-	public static List<Object> purchaseItems;
+    public static PurchaseRegistry purchaseRegistry = new PurchaseRegistry();
+    public static List<Object> purchaseItems;
 
-	private PurchaseManager() {
+    private PurchaseManager() {
 
-	}
+    }
 
-	public static void registryPurchaseItems() {
+    public static void registryPurchaseItems() {
 
-		for (Object ob : purchaseItems) {
+        for (Object ob : purchaseItems) {
 
-			Method[] ms = ob.getClass().getDeclaredMethods();
+            Method[] ms = ob.getClass().getDeclaredMethods();
 
-			for (Method m : ms) {
+            for (Method m : ms) {
 
-				if (isEventHandler(m)) {
+                if (isEventHandler(m)) {
 
-					try {
+                    try {
 
-						m.invoke(ob, new Object[] { (IPurchaseRegistry) purchaseRegistry });
+                        m.invoke(ob, new Object[] { (IPurchaseRegistry) purchaseRegistry });
 
-					} catch (IllegalAccessException e) {
-						e.printStackTrace();
-					} catch (IllegalArgumentException e) {
-						e.printStackTrace();
-					} catch (InvocationTargetException e) {
-						e.printStackTrace();
-					}
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (IllegalArgumentException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
 
-				}
+                }
 
-			}
+            }
 
-		}
+        }
 
-	}
+    }
 
-	private static boolean isEventHandler(Method m) {
+    private static boolean isEventHandler(Method m) {
 
-		for (Annotation annotation : m.getAnnotations()) {
+        for (Annotation annotation : m.getAnnotations()) {
 
-			if (annotation.annotationType().equals(PurchaseItems.EventHandler.class)) {
+            if (annotation.annotationType().equals(PurchaseItems.EventHandler.class)) {
 
-				Class<? extends Object> methodArgs[] = m.getParameterTypes();
-				if (methodArgs.length != 1) continue;
-				if (methodArgs[0].toString().matches(".*" + "IPurchaseRegistry" + ".*")) {
-					return true;
-				}
+                Class<? extends Object> methodArgs[] = m.getParameterTypes();
+                if (methodArgs.length != 1) continue;
+                if (methodArgs[0].toString().matches(".*" + "IPurchaseRegistry" + ".*")) {
+                    return true;
+                }
 
-			}
+            }
 
-		}
+        }
 
-		return false;
+        return false;
 
-	}
+    }
 
-	public static void setPurchaseItems(@Nonnull ASMDataTable asmDataTable) {
+    public static void setPurchaseItems(@Nonnull ASMDataTable asmDataTable) {
 
-		purchaseItems = getPurchaseItems(asmDataTable);
+        purchaseItems = getPurchaseItems(asmDataTable);
 
-	}
+    }
 
-	public static List<Object> getPurchaseItems(@Nonnull ASMDataTable asmDataTable) {
-		return getInstances(asmDataTable, PurchaseItems.class);
-	}
+    public static List<Object> getPurchaseItems(@Nonnull ASMDataTable asmDataTable) {
+        return getInstances(asmDataTable, PurchaseItems.class);
+    }
 
-	private static List<Object> getInstances(@Nonnull ASMDataTable asmDataTable, Class annotationClass) {
+    private static List<Object> getInstances(@Nonnull ASMDataTable asmDataTable, Class annotationClass) {
 
-		String annotationClassName = annotationClass.getCanonicalName();
-		Set<ASMDataTable.ASMData> asmDatas = asmDataTable.getAll(annotationClassName);
+        String annotationClassName = annotationClass.getCanonicalName();
+        Set<ASMDataTable.ASMData> asmDatas = asmDataTable.getAll(annotationClassName);
 
-		List<Object> instances = new ArrayList<>();
-		for (ASMDataTable.ASMData asmData : asmDatas) {
+        List<Object> instances = new ArrayList<Object>();
+        for (ASMDataTable.ASMData asmData : asmDatas) {
 
-			try {
-				Class<?> asmClass = Class.forName(asmData.getClassName());
-				Object instance = asmClass.newInstance();
-				instances.add(instance);
-			} catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
-				e.printStackTrace();
-			}
+            try {
+                Class<?> asmClass = Class.forName(asmData.getClassName());
+                Object instance = asmClass.newInstance();
+                instances.add(instance);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
 
-		}
-		return instances;
+        }
+        return instances;
 
-	}
+    }
 
 }
