@@ -14,13 +14,10 @@ import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.oredict.OreDictionary;
 import shift.mceconomy3.api.purchase.IPurchaseItem;
 import shift.mceconomy3.api.shop.IProductList;
 import shift.mceconomy3.api.shop.IShop;
@@ -256,13 +253,14 @@ public class MCEconomyAPI {
 
         //MCEconomyAPI.ShopManager = new ShopManager();
 
-    	/*
+        /*
         //建築 Block
-        addPurchaseItem(new ItemStack(Blocks.stone), 1);
-        addPurchaseItem(new ItemStack(Blocks.grass), 10);
-        addPurchaseItem(new ItemStack(Blocks.dirt), 5);
-        addPurchaseItem(new ItemStack(Blocks.dirt, 1, 2), 10);
-        addPurchaseItem(new ItemStack(Blocks.cobblestone), 0);
+        addPurchaseItem(new ItemStack(Blocks.STONE), 1);
+        addPurchaseItem(new ItemStack(Blocks.GRASS), 10);
+        addPurchaseItem(new ItemStack(Blocks.DIRT), 5);
+        addPurchaseItem(new ItemStack(Blocks.DIRT, 1, 2), 10);
+        addPurchaseItem(new ItemStack(Blocks.COBBLESTONE), 0);
+        
         for (int i = 0; i < 6; i++) {
             addPurchaseItem(new ItemStack(Blocks.planks, 1, i), 4);
         }
@@ -377,7 +375,7 @@ public class MCEconomyAPI {
             addPurchaseItem(new ItemStack(Blocks.stained_glass, 1, i), 35);
         }
         //建築 Item
-
+        
         //装飾 Block
         for (int i = 0; i < 6; i++) {
             addPurchaseItem(new ItemStack(Blocks.sapling, 1, i), 2);
@@ -453,7 +451,7 @@ public class MCEconomyAPI {
         addPurchaseItem(new ItemStack(Items.item_frame), 60);
         addPurchaseItem(new ItemStack(Items.flower_pot), 150);
         addPurchaseItem(new ItemStack(Items.skull), 50);
-
+        
         //レッドストーン Block
         addPurchaseItem(new ItemStack(Blocks.dispenser), 200);
         addPurchaseItem(new ItemStack(Blocks.noteblock), 120);
@@ -495,7 +493,7 @@ public class MCEconomyAPI {
         addPurchaseItem(new ItemStack(Items.redstone), 40);
         addPurchaseItem(new ItemStack(Items.repeater), 150);
         addPurchaseItem(new ItemStack(Items.comparator), 210);
-
+        
         //移動 Block
         addPurchaseItem(new ItemStack(Blocks.golden_rail), 4100);
         addPurchaseItem(new ItemStack(Blocks.detector_rail), 600);
@@ -511,7 +509,7 @@ public class MCEconomyAPI {
         addPurchaseItem(new ItemStack(Items.tnt_minecart), 800);
         addPurchaseItem(new ItemStack(Items.hopper_minecart), 980);
         addPurchaseItem(new ItemStack(Items.command_block_minecart), -1);
-
+        
         //その他 Block
         addPurchaseItem(new ItemStack(Blocks.beacon), 9000);
         //その他 Item
@@ -540,7 +538,7 @@ public class MCEconomyAPI {
         addPurchaseItem(new ItemStack(Items.diamond_horse_armor), 20000);
         addPurchaseItem("record", 500);
         addPurchaseItem(new ItemStack(Items.record_11), -1);
-
+        
         //        addPurchaseItem(new ItemStack(Items.record_13), 500);
         //        addPurchaseItem(new ItemStack(Items.record_cat), 500);
         //        addPurchaseItem(new ItemStack(Items.record_blocks), 500);
@@ -553,13 +551,13 @@ public class MCEconomyAPI {
         //        addPurchaseItem(new ItemStack(Items.record_ward), 500);
         //        addPurchaseItem(new ItemStack(Items.record_11), -1);
         //        addPurchaseItem(new ItemStack(Items.record_wait), 500);
-
+        
         //食べ物 Block
         addPurchaseItem(new ItemStack(Blocks.cake), -1);//ブロックのケーキ
         addPurchaseItem(new ItemStack(Blocks.cocoa), -1);//ブロック状態のカカオ
         addPurchaseItem(new ItemStack(Blocks.carrots), -1);//にんじん
         addPurchaseItem(new ItemStack(Blocks.potatoes), -1);//じゃがいも
-
+        
         //食べ物 Item
         addPurchaseItem(new ItemStack(Items.apple), 20);
         addPurchaseItem(new ItemStack(Items.mushroom_stew), 50);
@@ -588,7 +586,7 @@ public class MCEconomyAPI {
         addPurchaseItem(new ItemStack(Items.poisonous_potato), 0);
         addPurchaseItem(new ItemStack(Items.golden_carrot), 650);
         addPurchaseItem(new ItemStack(Items.pumpkin_pie), 128);
-
+        
         //道具 素材の金属の1/10
         addPurchaseItem(new ItemStack(Items.iron_shovel), 50);
         addPurchaseItem(new ItemStack(Items.iron_pickaxe), 150);
@@ -617,7 +615,7 @@ public class MCEconomyAPI {
         addPurchaseItem(new ItemStack(Items.shears), 500);
         addPurchaseItem(new ItemStack(Items.lead), 30);
         addPurchaseItem(new ItemStack(Items.name_tag), 60);
-
+        
         //戦闘
         addPurchaseItem(new ItemStack(Items.bow), 20);
         addPurchaseItem(new ItemStack(Items.arrow), 1);
@@ -647,7 +645,7 @@ public class MCEconomyAPI {
         addPurchaseItem(new ItemStack(Items.golden_leggings), 5600);
         addPurchaseItem(new ItemStack(Items.golden_boots), 3200);
         addPurchaseItem(new ItemStack(Items.enchanted_book), 30);
-
+        
         //ポーション Block
         addPurchaseItem(new ItemStack(Blocks.brewing_stand), -1);//ブロック状態のスタンド
         addPurchaseItem(new ItemStack(Blocks.cauldron), -1);//ブロック状態の釜
@@ -662,7 +660,7 @@ public class MCEconomyAPI {
         addPurchaseItem(new ItemStack(Items.cauldron), 50);
         addPurchaseItem(new ItemStack(Items.brewing_stand), 3500);
         addPurchaseItem(new ItemStack(Items.speckled_melon), 650);
-
+        
         //材料
         addPurchaseItem(new ItemStack(Items.coal, 1, 0), 50);
         addPurchaseItem(new ItemStack(Items.coal, 1, 1), 10);//木炭
@@ -710,7 +708,7 @@ public class MCEconomyAPI {
         addPurchaseItem(new ItemStack(Items.nether_star), 8000);
         addPurchaseItem(new ItemStack(Items.netherbrick), 20);
         addPurchaseItem(new ItemStack(Items.quartz), 300);
-
+        
         */
 
         //液体
