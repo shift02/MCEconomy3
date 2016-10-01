@@ -1,13 +1,11 @@
 package shift.mceconomy3;
 
-import java.io.File;
-import java.net.URL;
-
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import shift.mceconomy3.api.MCEconomyAPI;
@@ -17,6 +15,7 @@ import shift.mceconomy3.gui.HUDMP;
 import shift.mceconomy3.item.MCEItems;
 import shift.mceconomy3.packet.PacketHandler;
 import shift.mceconomy3.proxy.CommonProxy;
+import shift.mceconomy3.purchase.PurchaseManager;
 
 @Mod(modid = MCEconomy3.MODID, version = MCEconomy3.VERSION, dependencies = MCEconomy3.DEPENDENCY)
 public class MCEconomy3 {
@@ -51,6 +50,7 @@ public class MCEconomy3 {
         MCEconomyAPI.ShopManager = new ShopManager();
         MCEconomyAPI.registerPurchaseItem();
 
+        PurchaseManager.setPurchaseItems(event.getAsmData());
 
     }
 
@@ -83,6 +83,11 @@ public class MCEconomy3 {
 
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new MCEGuiHandler());
 
+    }
+
+    @EventHandler
+    public void init(FMLPostInitializationEvent event) {
+        PurchaseManager.registryPurchaseItems();
     }
 
 }
