@@ -13,9 +13,16 @@ public class PurchaseVanilla {
 
         //建築 Block
         registry.addPurchaseItem(new ItemStack(Blocks.STONE), 1);
+        registry.addPurchaseItem(new ItemStack(Blocks.STONE, 1, 1), 1);
+        registry.addPurchaseItem(new ItemStack(Blocks.STONE, 1, 2), 4);
+        registry.addPurchaseItem(new ItemStack(Blocks.STONE, 1, 3), 1);
+        registry.addPurchaseItem(new ItemStack(Blocks.STONE, 1, 4), 4);
+        registry.addPurchaseItem(new ItemStack(Blocks.STONE, 1, 5), 1);
+        registry.addPurchaseItem(new ItemStack(Blocks.STONE, 1, 6), 4);
         registry.addPurchaseItem(new ItemStack(Blocks.GRASS), 10);
         registry.addPurchaseItem(new ItemStack(Blocks.DIRT), 5);
         registry.addPurchaseItem(new ItemStack(Blocks.DIRT, 1, 2), 10);
+        registry.addPurchaseItem(new ItemStack(Blocks.DIRT, 1, 1), 6);
         registry.addPurchaseItem(new ItemStack(Blocks.COBBLESTONE), 0);
 
         for (int i = 0; i < 6; i++) {
@@ -34,7 +41,8 @@ public class PurchaseVanilla {
         for (int i = 0; i < 2; i++) {
             registry.addPurchaseItem(new ItemStack(Blocks.LOG2, 1, i), 10);
         }
-        registry.addPurchaseItem(new ItemStack(Blocks.SPONGE), -1);
+        registry.addPurchaseItem(new ItemStack(Blocks.SPONGE), 50);
+        registry.addPurchaseItem(new ItemStack(Blocks.SPONGE, 1, 1), -1);
         registry.addPurchaseItem(new ItemStack(Blocks.GLASS), 30);
         registry.addPurchaseItem(new ItemStack(Blocks.LAPIS_ORE), 1200);
         registry.addPurchaseItem(new ItemStack(Blocks.LAPIS_BLOCK), 2000);
@@ -131,6 +139,28 @@ public class PurchaseVanilla {
         for (int I = 0; I < 16; I++) {
             registry.addPurchaseItem(new ItemStack(Blocks.STAINED_GLASS, 1, I), 35);
         }
+        registry.addPurchaseItem(new ItemStack(Blocks.PRISMARINE), 20);//海
+        registry.addPurchaseItem(new ItemStack(Blocks.PRISMARINE, 1, 1), 45);
+        registry.addPurchaseItem(new ItemStack(Blocks.PRISMARINE, 1, 2), 42);
+        registry.addPurchaseItem(new ItemStack(Blocks.SEA_LANTERN, 1, 0), 120);
+        registry.addPurchaseItem(new ItemStack(Blocks.RED_SANDSTONE, 1, 0), 32);//砂
+        registry.addPurchaseItem(new ItemStack(Blocks.RED_SANDSTONE, 1, 1), 54);//砂
+        registry.addPurchaseItem(new ItemStack(Blocks.RED_SANDSTONE, 1, 2), 54);//砂
+        registry.addPurchaseItem(new ItemStack(Blocks.RED_SANDSTONE_STAIRS, 1, 0), 30);//砂
+        registry.addPurchaseItem(new ItemStack(Blocks.STONE_SLAB2, 1, 0), 8);//砂
+        registry.addPurchaseItem(new ItemStack(Blocks.PURPUR_BLOCK, 1, 0), 5);//パァー
+        registry.addPurchaseItem(new ItemStack(Blocks.PURPUR_PILLAR, 1, 0), 5);
+        registry.addPurchaseItem(new ItemStack(Blocks.PURPUR_STAIRS, 1, 0), 6);
+        registry.addPurchaseItem(new ItemStack(Blocks.PURPUR_SLAB, 1, 0), 2);
+        registry.addPurchaseItem(new ItemStack(Blocks.END_BRICKS, 1, 0), 20);
+        registry.addPurchaseItem(new ItemStack(Blocks.BEETROOTS, 1, 0), -1);
+        registry.addPurchaseItem(new ItemStack(Blocks.GRASS_PATH, 1, 0), -1);
+        registry.addPurchaseItem(new ItemStack(Blocks.FROSTED_ICE, 1, 0), -1);
+        registry.addPurchaseItem(new ItemStack(Blocks.field_189877_df, 1, 0), 20);//マグマ
+        registry.addPurchaseItem(new ItemStack(Blocks.field_189878_dg, 1, 0), 100);//ネザー
+        registry.addPurchaseItem(new ItemStack(Blocks.field_189879_dh, 1, 0), 38);
+        registry.addPurchaseItem(new ItemStack(Blocks.field_189880_di, 1, 0), 100);//骨
+
         //建築 ITEM
 
         //装飾 BLOCK
@@ -206,6 +236,13 @@ public class PurchaseVanilla {
         for (int I = 0; I < 16; I++) {
             registry.addPurchaseItem(new ItemStack(Blocks.STAINED_GLASS_PANE, 1, I), 18);
         }
+        registry.addPurchaseItem(new ItemStack(Blocks.STANDING_BANNER, 1, 0), -1);
+        registry.addPurchaseItem(new ItemStack(Blocks.WALL_BANNER, 1, 0), -1);
+        registry.addPurchaseItem(new ItemStack(Blocks.END_ROD, 1, 0), 5);
+        registry.addPurchaseItem(new ItemStack(Blocks.CHORUS_PLANT, 1, 0), -1);
+        registry.addPurchaseItem(new ItemStack(Blocks.CHORUS_FLOWER, 1, 0), -1);
+        registry.addPurchaseItem(new ItemStack(Blocks.field_189881_dj, 1, 0), -1);//ストラクチャー
+        registry.addPurchaseItem(new ItemStack(Blocks.STRUCTURE_BLOCK, 1, 0), -1);
         //装飾 ITEM
         registry.addPurchaseItem(new ItemStack(Items.PAINTING), 20);
         registry.addPurchaseItem(new ItemStack(Items.SIGN), 24);
@@ -213,6 +250,14 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Items.ITEM_FRAME), 60);
         registry.addPurchaseItem(new ItemStack(Items.FLOWER_POT), 150);
         registry.addPurchaseItem(new ItemStack(Items.SKULL), 50);
+        registry.addPurchaseItem(new ItemStack(Items.SKULL, 1, 1), 50);
+        registry.addPurchaseItem(new ItemStack(Items.SKULL, 1, 2), 50);
+        registry.addPurchaseItem(new ItemStack(Items.SKULL, 1, 3), 50);
+        registry.addPurchaseItem(new ItemStack(Items.SKULL, 1, 4), 50);
+        registry.addPurchaseItem(new ItemStack(Items.SKULL, 1, 5), 15000);
+        registry.addPurchaseItem(new ItemStack(Items.ARMOR_STAND, 1, 0), 30);
+        registry.addPurchaseItem(new ItemStack(Items.BANNER, 1, OreDictionary.WILDCARD_VALUE), 400);
+        registry.addPurchaseItem(new ItemStack(Items.END_CRYSTAL, 1, 0), -1);
 
         //レッドストーン BLOCK
         registry.addPurchaseItem(new ItemStack(Blocks.DISPENSER), 200);
@@ -239,6 +284,7 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Blocks.UNPOWERED_REPEATER), -1);
         registry.addPurchaseItem(new ItemStack(Blocks.POWERED_REPEATER), -1);
         registry.addPurchaseItem(new ItemStack(Blocks.TRAPDOOR), 15);
+        registry.addPurchaseItem(new ItemStack(Blocks.IRON_TRAPDOOR), 1200);
         registry.addPurchaseItem(new ItemStack(Blocks.OAK_FENCE_GATE), 10);//フェンスゲート
         registry.addPurchaseItem(new ItemStack(Blocks.SPRUCE_FENCE_GATE), 10);//フェンスゲート
         registry.addPurchaseItem(new ItemStack(Blocks.BIRCH_FENCE_GATE), 10);//フェンスゲート
@@ -259,6 +305,8 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Blocks.REDSTONE_BLOCK), 360);
         registry.addPurchaseItem(new ItemStack(Blocks.HOPPER), 2600);
         registry.addPurchaseItem(new ItemStack(Blocks.DROPPER), 50);
+        registry.addPurchaseItem(new ItemStack(Blocks.REPEATING_COMMAND_BLOCK), -1);
+        registry.addPurchaseItem(new ItemStack(Blocks.CHAIN_COMMAND_BLOCK), -1);
         //レッドストーン ITEM
         registry.addPurchaseItem(new ItemStack(Items.OAK_DOOR), 28);
         registry.addPurchaseItem(new ItemStack(Items.SPRUCE_DOOR), 28);
@@ -280,12 +328,18 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Items.MINECART), 800);
         registry.addPurchaseItem(new ItemStack(Items.SADDLE), 40);
         registry.addPurchaseItem(new ItemStack(Items.BOAT), 30);
+        registry.addPurchaseItem(new ItemStack(Items.SPRUCE_BOAT), 30);
+        registry.addPurchaseItem(new ItemStack(Items.BIRCH_BOAT), 30);
+        registry.addPurchaseItem(new ItemStack(Items.JUNGLE_BOAT), 30);
+        registry.addPurchaseItem(new ItemStack(Items.ACACIA_BOAT), 30);
+        registry.addPurchaseItem(new ItemStack(Items.DARK_OAK_BOAT), 30);
         registry.addPurchaseItem(new ItemStack(Items.CHEST_MINECART), 830);
         registry.addPurchaseItem(new ItemStack(Items.FURNACE_MINECART), 820);
         registry.addPurchaseItem(new ItemStack(Items.CARROT_ON_A_STICK), 26);
         registry.addPurchaseItem(new ItemStack(Items.TNT_MINECART), 800);
         registry.addPurchaseItem(new ItemStack(Items.HOPPER_MINECART), 980);
         registry.addPurchaseItem(new ItemStack(Items.COMMAND_BLOCK_MINECART), -1);
+        registry.addPurchaseItem(new ItemStack(Items.ELYTRA), 600);
 
         //その他 BLOCK
         registry.addPurchaseItem(new ItemStack(Blocks.BEACON), 9000);
@@ -363,6 +417,13 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Items.POISONOUS_POTATO), 0);
         registry.addPurchaseItem(new ItemStack(Items.GOLDEN_CARROT), 650);
         registry.addPurchaseItem(new ItemStack(Items.PUMPKIN_PIE), 128);
+        registry.addPurchaseItem(new ItemStack(Items.RABBIT), 24);
+        registry.addPurchaseItem(new ItemStack(Items.COOKED_RABBIT), 36);
+        registry.addPurchaseItem(new ItemStack(Items.RABBIT_STEW), 188);
+        registry.addPurchaseItem(new ItemStack(Items.MUTTON), 50);
+        registry.addPurchaseItem(new ItemStack(Items.COOKED_MUTTON), 60);
+        registry.addPurchaseItem(new ItemStack(Items.BEETROOT), 40);
+        registry.addPurchaseItem(new ItemStack(Items.BEETROOT_SOUP), 30);
 
         //道具 素材の金属の1/10
         registry.addPurchaseItem(new ItemStack(Items.IRON_SHOVEL), 50);
@@ -422,6 +483,7 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Items.GOLDEN_LEGGINGS), 5600);
         registry.addPurchaseItem(new ItemStack(Items.GOLDEN_BOOTS), 3200);
         registry.addPurchaseItem(new ItemStack(Items.ENCHANTED_BOOK), 30);
+        registry.addPurchaseItem(new ItemStack(Items.SHIELD), 600);
 
         //ポーション BLOCK
         registry.addPurchaseItem(new ItemStack(Blocks.BREWING_STAND), -1);//ブロック状態のスタンド
@@ -437,6 +499,7 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Items.CAULDRON), 50);
         registry.addPurchaseItem(new ItemStack(Items.BREWING_STAND), 3500);
         registry.addPurchaseItem(new ItemStack(Items.SPECKLED_MELON), 650);
+        registry.addPurchaseItem(new ItemStack(Items.RABBIT_FOOT), 320);
 
         //材料
         registry.addPurchaseItem(new ItemStack(Items.COAL, 1, 0), 50);
@@ -485,6 +548,12 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Items.NETHER_STAR), 8000);
         registry.addPurchaseItem(new ItemStack(Items.NETHERBRICK), 20);
         registry.addPurchaseItem(new ItemStack(Items.QUARTZ), 300);
+        registry.addPurchaseItem(new ItemStack(Items.PRISMARINE_SHARD), 5);
+        registry.addPurchaseItem(new ItemStack(Items.PRISMARINE_CRYSTALS), 20);
+        registry.addPurchaseItem(new ItemStack(Items.RABBIT_HIDE), 10);
+        registry.addPurchaseItem(new ItemStack(Items.CHORUS_FRUIT), 4);
+        registry.addPurchaseItem(new ItemStack(Items.CHORUS_FRUIT_POPPED), 1);
+        registry.addPurchaseItem(new ItemStack(Items.BEETROOT_SEEDS), 2);
 
     }
 
