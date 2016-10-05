@@ -33,7 +33,7 @@ import shift.mceconomy3.api.shop.ProductList;
  */
 public class MCEconomyAPI {
 
-    public static final String MODID = "mceconomy2";
+    public static String MODID = "mceconomy3";
 
     public static IMPManager MPManager;
 

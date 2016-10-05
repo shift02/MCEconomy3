@@ -21,13 +21,13 @@ import shift.mceconomy3.purchase.PurchaseManager;
 public class MCEconomy3 {
 
     public static final String MODID = "mceconomy3";
-    public static final String VERSION = "1.0.1";
+    public static final String VERSION = "1.0.2";
 
     public static final String UPDATE_JSON = "https://shift02.github.io/MCEconomy3/Update.json";
 
     public static final String DEPENDENCY = "";//"before:SextiarySector";
 
-    @Mod.Instance(MCEconomyAPI.MODID)
+    @Mod.Instance(MCEconomy3.MODID)
     public static MCEconomy3 instance;
 
     @SidedProxy(clientSide = "shift.mceconomy3.proxy.ClientProxy", serverSide = "shift.mceconomy3.proxy.CommonProxy")
@@ -35,6 +35,8 @@ public class MCEconomy3 {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+
+        MCEconomyAPI.MODID = MCEconomy3.MODID;
 
         Config.ConfigRead(event);
 
