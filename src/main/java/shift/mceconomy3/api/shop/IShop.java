@@ -2,6 +2,8 @@ package shift.mceconomy3.api.shop;
 
 import java.util.ArrayList;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import shift.mceconomy3.api.MCEconomyAPI;
@@ -22,7 +24,7 @@ public interface IShop {
      * GUIで表示する時はI18n.format()を使ってローカライズされます
      * @return ショップの名前
      */
-    public String getShopName(World world, EntityPlayer player);
+    public String getShopName(@Nullable World world, @Nullable EntityPlayer player);
 
     /**
      * ショップに商品を追加する
@@ -36,6 +38,6 @@ public interface IShop {
      * @param player
      * @return
      */
-    public ArrayList<IProduct> getProductList(World world, EntityPlayer player);
+    public ArrayList<IProduct> getProductList(@Nullable World world, @Nullable EntityPlayer player);
 
 }

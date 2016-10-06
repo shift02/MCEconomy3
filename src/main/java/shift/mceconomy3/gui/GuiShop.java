@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+import shift.mceconomy3.MCEconomy3;
 import shift.mceconomy3.api.MCEconomyAPI;
 import shift.mceconomy3.api.shop.IProduct;
 import shift.mceconomy3.api.shop.IShop;
@@ -23,7 +24,7 @@ import shift.mceconomy3.packet.PacketShopButton;
 
 public class GuiShop extends GuiContainer {
 
-    private static final ResourceLocation merchantGuiTextures = new ResourceLocation("mceconomy3:textures/guis/villager.png");
+    private static final ResourceLocation merchantGuiTextures = new ResourceLocation(MCEconomy3.MODID, "textures/guis/villager.png");
 
     private IShop theIProductList;
     private GuiButtonMerchant nextProductButton;
@@ -121,7 +122,8 @@ public class GuiShop extends GuiContainer {
 
             int money = MCEconomyAPI.getPlayerMP(mc.thePlayer);
 
-            if (money < roductItem.getCost(theIProductList, this.mc.theWorld, this.mc.thePlayer) || !roductItem.canBuy(theIProductList, this.mc.theWorld, this.mc.thePlayer)) //merchantrecipe.func_82784_g())
+            if (money < roductItem.getCost(theIProductList, this.mc.theWorld, this.mc.thePlayer)
+                    || !roductItem.canBuy(theIProductList, this.mc.theWorld, this.mc.thePlayer)) //merchantrecipe.func_82784_g())
             {
                 this.mc.getTextureManager().bindTexture(merchantGuiTextures);
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
