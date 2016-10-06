@@ -1,12 +1,13 @@
 {
   "homepage": "https://shift02.github.io/",
   "1.10.2": {
+    "1.0.3": "Fix ShopGUI",
     "1.0.2": "Fix MODID",
     "1.0.1": "Add ToolTip",
     "1.0.0": "Test"
   },
   "promos": {
-    "1.10.2-latest": "1.0.2",
-    "1.10.2-recommended": "1.0.2"
+    "1.10.2-latest": "1.0.3",
+    "1.10.2-recommended": "1.0.3"
   }
 }
