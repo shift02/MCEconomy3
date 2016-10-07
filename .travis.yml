@@ -1,5 +1,5 @@
 language: java
-jdk: oraclejdk7
+jdk: oraclejdk8
 env:
   matrix:
     - GRADLE_OPTS="-Xms1024m -Xms256m -XX:MaxPermSize=256m -XX:PermSize=256m"
