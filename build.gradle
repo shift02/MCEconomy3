@@ -104,7 +104,11 @@ artifacts {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: uri('/docs/maven'))
+            if (project.hasProperty('mavenfolder')) {    
+                repository(url: project.mavenfolder)
+            }else{
+                repository(url: uri('/docs/maven'))
+            }
         }
     }
 }

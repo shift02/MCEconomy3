@@ -22,3 +22,4 @@ eclipse
 run
 
 docs/maven
+gradle.properties
