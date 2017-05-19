@@ -9,21 +9,24 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import shift.mceconomy3.EntityPropertieMP;
 import shift.mceconomy3.MCEconomy3;
 import shift.mceconomy3.api.MCEconomyAPI;
+import shift.mceconomy3.packet.PacketHandler;
+import shift.mceconomy3.packet.PacketPlayerLogin;
 
 public class CommonEventManager {
 
     /*
     @SubscribeEvent
     public void onEntityConstructing(EntityConstructing event) {
-    
+
     	if (event.getEntity() instanceof EntityPlayer) {
     		event.getEntity().registerExtendedProperties(MPManager.STATUS,
     				new EntityPropertieMP());
     	}
-    
+
     }*/
 
     @SubscribeEvent
@@ -31,7 +34,7 @@ public class CommonEventManager {
 
         if (event.getEntity() instanceof EntityPlayer) {
 
-            event.addCapability(MPManager.r, new EntityPropertieMP());
+            event.addCapability(MPManager.r, new EntityPropertieMP((EntityPlayer) event.getEntity()));
             //event.getEntity().registerExtendedProperties(MPManager.STATUS,new EntityPropertieMP());
         }
 
@@ -41,12 +44,29 @@ public class CommonEventManager {
     /* ワールドに入った時に呼ばれるイベント。 */
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
 
+    	if(event.getEntity().worldObj.isRemote && event.getEntity() instanceof EntityPlayer){
+    		PacketHandler.INSTANCE.sendToServer(new PacketPlayerLogin());
+    	}
+
         if (!event.getEntity().worldObj.isRemote && event.getEntity() instanceof EntityPlayer) {
 
             MPManager.loadProxyData((EntityPlayer) event.getEntity());
 
         }
     }
+
+    @SubscribeEvent
+    /* ログインした時に呼ばれるイベント。 */
+    public void onPlayerLoggedInEvent(PlayerLoggedInEvent event) {
+
+        if (!event.player.worldObj.isRemote) {
+
+            MPManager.loadProxyData((EntityPlayer) event.player);
+
+        }
+    }
+
+
 
     @SubscribeEvent
     public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {

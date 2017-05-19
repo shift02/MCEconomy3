@@ -21,6 +21,8 @@ public class PacketHandler {
 		INSTANCE.registerMessage(ShopButtonHandler.class,PacketShopButton.class, 1, Side.SERVER);
 		INSTANCE.registerMessage(MessageGuiId.class,PacketGuiId.class, 2, Side.SERVER);
 
+		INSTANCE.registerMessage(PlayerLoginHandler.class,PacketPlayerLogin.class, 3, Side.SERVER);
+
 	}
 
 }
