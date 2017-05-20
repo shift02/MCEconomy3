@@ -1,7 +1,5 @@
 package shift.mceconomy3.api.money;
 
-import net.minecraftforge.energy.EnergyStorage;
-
 /**
  * MPを管理するインターフェイス。
  * <p>
