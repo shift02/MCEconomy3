@@ -1,5 +1,7 @@
 package shift.mceconomy3;
 
+import java.io.File;
+
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -11,6 +13,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import shift.mceconomy3.api.MCEconomyAPI;
+import shift.mceconomy3.api.money.CapabilityMoneyStorage;
 import shift.mceconomy3.api.shop.IShop;
 import shift.mceconomy3.api.shop.ProductBase;
 import shift.mceconomy3.api.shop.ShopBase;
@@ -53,6 +56,8 @@ public class MCEconomy3 {
 
         CapabilityMPHandler.register();
 
+        CapabilityMoneyStorage.register();
+
         if (event.getSide().isClient()) {
             MinecraftForge.EVENT_BUS.register(new HUDMP());
         }
@@ -62,6 +67,8 @@ public class MCEconomy3 {
         MCEconomyAPI.SoundManager = new MCESoundManager();
         MCEconomyAPI.ShopManager = new ShopManager();
         MCEconomyAPI.registerPurchaseItem();
+
+
 
         PurchaseManager.setPurchaseItems(event.getAsmData());
 
