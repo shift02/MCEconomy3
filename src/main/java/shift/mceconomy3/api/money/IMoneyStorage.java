@@ -1,15 +1,14 @@
 package shift.mceconomy3.api.money;
 
 /**
- * MPを管理するインターフェイス。
+ * MPを保管するインターフェイス。
  * <p>
- * ItemStackやTileEntity、EntityもWorldもすべてこれを持っている。
- * MCEconomyはEnumFacingをnullでセットしている
+ * 財布や金庫で使用する
  * 実際の実装例は {@link MoneyStorage} を参考にする
  * @author Shift02
  *
  */
-public interface IMoney {
+public interface IMoneyStorage {
 
 	/**
 	 * MPをストレージに追加する

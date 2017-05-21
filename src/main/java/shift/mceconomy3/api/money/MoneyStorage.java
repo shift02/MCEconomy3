@@ -1,11 +1,11 @@
 package shift.mceconomy3.api.money;
 
 /**
- * IMoneyの基礎実装
+ * IMoneyStorageの基礎実装
  * @author Shift02
  *
  */
-public class MoneyStorage  implements IMoney
+public class MoneyStorage  implements IMoneyStorage
 {
     protected int money;
     protected int capacity;

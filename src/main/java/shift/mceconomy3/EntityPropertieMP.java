@@ -8,11 +8,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
-import shift.mceconomy3.api.money.IMoney;
+import shift.mceconomy3.api.money.IMoneyStorage;
 import shift.mceconomy3.api.money.MoneyStorage;
 import shift.mceconomy3.event.MPManager;
 
-public class EntityPropertieMP implements IMoney, ICapabilitySerializable<NBTTagCompound> {
+public class EntityPropertieMP implements IMoneyStorage, ICapabilitySerializable<NBTTagCompound> {
 
 
 	@CapabilityInject(EntityPropertieMP.class)
