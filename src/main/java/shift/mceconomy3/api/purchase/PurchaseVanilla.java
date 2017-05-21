@@ -11,6 +11,8 @@ public class PurchaseVanilla {
     @PurchaseItems.EventHandler
     public void registerPurchaseItems(IPurchaseRegistry registry) {
 
+    	//無限に手に入るアイテムは安く
+
         //建築 Block
         registry.addPurchaseItem(new ItemStack(Blocks.STONE), 1);
         registry.addPurchaseItem(new ItemStack(Blocks.STONE, 1, 1), 1);
@@ -86,7 +88,7 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Blocks.ICE), 65);
         registry.addPurchaseItem(new ItemStack(Blocks.SNOW), 1);
         registry.addPurchaseItem(new ItemStack(Blocks.CLAY), 120);
-        registry.addPurchaseItem(new ItemStack(Blocks.PUMPKIN), 90);
+        registry.addPurchaseItem(new ItemStack(Blocks.PUMPKIN), 8);//パンプキン
         registry.addPurchaseItem(new ItemStack(Blocks.NETHERRACK), 0);
         registry.addPurchaseItem(new ItemStack(Blocks.SOUL_SAND), 2);
         registry.addPurchaseItem(new ItemStack(Blocks.GLOWSTONE), 400);
@@ -96,7 +98,7 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Blocks.STONEBRICK, 1, 1), 8);
         registry.addPurchaseItem(new ItemStack(Blocks.STONEBRICK, 1, 2), 5);
         registry.addPurchaseItem(new ItemStack(Blocks.STONEBRICK, 1, 3), 14);
-        registry.addPurchaseItem(new ItemStack(Blocks.MELON_BLOCK), 95);
+        registry.addPurchaseItem(new ItemStack(Blocks.MELON_BLOCK), 11);//メロン
         registry.addPurchaseItem(new ItemStack(Blocks.PUMPKIN_STEM), -1);//根
         registry.addPurchaseItem(new ItemStack(Blocks.MELON_STEM), -1);
         registry.addPurchaseItem(new ItemStack(Blocks.BRICK_STAIRS), 210);
@@ -390,7 +392,7 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Blocks.POTATOES), -1);//じゃがいも
 
         //食べ物 ITEM
-        registry.addPurchaseItem(new ItemStack(Items.APPLE), 20);
+        registry.addPurchaseItem(new ItemStack(Items.APPLE), 14);
         registry.addPurchaseItem(new ItemStack(Items.MUSHROOM_STEW), 50);
         registry.addPurchaseItem(new ItemStack(Items.PORKCHOP), 20);
         registry.addPurchaseItem(new ItemStack(Items.COOKED_PORKCHOP), 28);
@@ -404,16 +406,16 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Items.COOKED_FISH, 1, 1), 296);
         registry.addPurchaseItem(new ItemStack(Items.CAKE), 640);
         registry.addPurchaseItem(new ItemStack(Items.COOKIE), 22);
-        registry.addPurchaseItem(new ItemStack(Items.MELON), 8);
+        registry.addPurchaseItem(new ItemStack(Items.MELON), 1);
         registry.addPurchaseItem(new ItemStack(Items.BEEF), 90);
         registry.addPurchaseItem(new ItemStack(Items.COOKED_BEEF), 100);
         registry.addPurchaseItem(new ItemStack(Items.CHICKEN), 40);
         registry.addPurchaseItem(new ItemStack(Items.COOKED_CHICKEN), 50);
         registry.addPurchaseItem(new ItemStack(Items.ROTTEN_FLESH), 0);
         registry.addPurchaseItem(new ItemStack(Items.SPIDER_EYE), 1);
-        registry.addPurchaseItem(new ItemStack(Items.CARROT), 53);
-        registry.addPurchaseItem(new ItemStack(Items.POTATO), 42);
-        registry.addPurchaseItem(new ItemStack(Items.BAKED_POTATO), 50);
+        registry.addPurchaseItem(new ItemStack(Items.CARROT), 16);
+        registry.addPurchaseItem(new ItemStack(Items.POTATO), 12);
+        registry.addPurchaseItem(new ItemStack(Items.BAKED_POTATO), 24);
         registry.addPurchaseItem(new ItemStack(Items.POISONOUS_POTATO), 0);
         registry.addPurchaseItem(new ItemStack(Items.GOLDEN_CARROT), 650);
         registry.addPurchaseItem(new ItemStack(Items.PUMPKIN_PIE), 128);
@@ -513,14 +515,14 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Items.FEATHER), 1);
         registry.addPurchaseItem(new ItemStack(Items.GUNPOWDER), 4);
         registry.addPurchaseItem(new ItemStack(Items.WHEAT_SEEDS), 1);
-        registry.addPurchaseItem(new ItemStack(Items.WHEAT), 50);
+        registry.addPurchaseItem(new ItemStack(Items.WHEAT), 20);
         registry.addPurchaseItem(new ItemStack(Items.BREAD), 80);
         registry.addPurchaseItem(new ItemStack(Items.FLINT), 3);
         registry.addPurchaseItem(new ItemStack(Items.LEATHER), 50);
         registry.addPurchaseItem(new ItemStack(Items.BRICK), 50);
         registry.addPurchaseItem(new ItemStack(Items.CLAY_BALL), 30);
         registry.addPurchaseItem(new ItemStack(Items.REEDS), 10);
-        registry.addPurchaseItem(new ItemStack(Items.EGG), 20);
+        registry.addPurchaseItem(new ItemStack(Items.EGG), 3);
         registry.addPurchaseItem(new ItemStack(Items.GLOWSTONE_DUST), 100);
         registry.addPurchaseItem(new ItemStack(Items.DYE, 1, 0), 30);//染料 イカスミ
         registry.addPurchaseItem(new ItemStack(Items.DYE, 1, 1), 5);//染料
