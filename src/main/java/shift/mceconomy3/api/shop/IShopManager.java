@@ -15,12 +15,6 @@ import shift.mceconomy3.api.purchase.IPurchaseItem;
  */
 public interface IShopManager {
 
-    public int registerProductList(IProductList list);
-
-    public IProductList getProductList(int id);
-
-    public ArrayList<IProductList> getProductLists();
-
     public int registerShop(IShop list);
 
     public IShop getShop(int id);

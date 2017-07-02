@@ -15,10 +15,8 @@ import shift.mceconomy3.api.event.PriceEvent;
 import shift.mceconomy3.api.purchase.IPurchaseItem;
 import shift.mceconomy3.api.purchase.PurchaseItemStack;
 import shift.mceconomy3.api.purchase.PurchaseOreDictionary;
-import shift.mceconomy3.api.shop.IProductList;
 import shift.mceconomy3.api.shop.IShop;
 import shift.mceconomy3.api.shop.IShopManager;
-import shift.mceconomy3.api.shop.ShopAdapter;
 import shift.mceconomy3.packet.PacketGuiId;
 import shift.mceconomy3.packet.PacketHandler;
 
@@ -46,34 +44,6 @@ public class ShopManager implements IShopManager {
     }
 
     //shop関係
-    @Override
-    public int registerProductList(IProductList list) {
-
-        IShop shop = new ShopAdapter(list);
-
-        return this.registerShop(shop);
-
-    }
-
-    @Override
-    public IProductList getProductList(int id) {
-
-        return null;
-
-        //        if (ProductList.size() < id) {
-        //            return null;
-        //        }
-        //        return ProductList.get(id);
-
-    }
-
-    @Override
-    public ArrayList<IProductList> getProductLists() {
-
-        return null;// ProductList;
-
-    }
-
     @Override
     public int registerShop(IShop list) {
 
