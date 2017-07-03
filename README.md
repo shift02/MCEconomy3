@@ -5,7 +5,7 @@
 
 Add Economy to Minecraft
 
-##Overview 概要
+## Overview 概要
 
 API to add the concept of economy in Minecraft
 
@@ -29,10 +29,10 @@ dependencies {
 }
 ```
 
-##License ライセンス
+## License ライセンス
 
 [![MMPL_J](https://img.shields.io/badge/license-MMPL__%20J-blue.svg)](http://tsoft-web.com/nokiyen/minecraft/modding/MMPL_J)
 
-##Link リンク
+## Link リンク
 
 - [Forum(フォーラム)](http://forum.minecraftuser.jp/viewtopic.php?f=13&t=31965&p=280161)
