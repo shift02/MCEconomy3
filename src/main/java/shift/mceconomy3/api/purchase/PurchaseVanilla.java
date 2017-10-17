@@ -158,10 +158,10 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Blocks.BEETROOTS, 1, 0), -1);
         registry.addPurchaseItem(new ItemStack(Blocks.GRASS_PATH, 1, 0), -1);
         registry.addPurchaseItem(new ItemStack(Blocks.FROSTED_ICE, 1, 0), -1);
-        registry.addPurchaseItem(new ItemStack(Blocks.field_189877_df, 1, 0), 20);//マグマ
-        registry.addPurchaseItem(new ItemStack(Blocks.field_189878_dg, 1, 0), 100);//ネザー
-        registry.addPurchaseItem(new ItemStack(Blocks.field_189879_dh, 1, 0), 38);
-        registry.addPurchaseItem(new ItemStack(Blocks.field_189880_di, 1, 0), 100);//骨
+        registry.addPurchaseItem(new ItemStack(Blocks.MAGMA, 1, 0), 20);//マグマ
+        registry.addPurchaseItem(new ItemStack(Blocks.NETHER_WART_BLOCK, 1, 0), 100);//ネザー
+        registry.addPurchaseItem(new ItemStack(Blocks.RED_NETHER_BRICK, 1, 0), 38);
+        registry.addPurchaseItem(new ItemStack(Blocks.BONE_BLOCK, 1, 0), 100);//骨
 
         //建築 ITEM
 
@@ -243,7 +243,7 @@ public class PurchaseVanilla {
         registry.addPurchaseItem(new ItemStack(Blocks.END_ROD, 1, 0), 5);
         registry.addPurchaseItem(new ItemStack(Blocks.CHORUS_PLANT, 1, 0), -1);
         registry.addPurchaseItem(new ItemStack(Blocks.CHORUS_FLOWER, 1, 0), -1);
-        registry.addPurchaseItem(new ItemStack(Blocks.field_189881_dj, 1, 0), -1);//ストラクチャー
+        registry.addPurchaseItem(new ItemStack(Blocks.STRUCTURE_VOID, 1, 0), -1);//ストラクチャー
         registry.addPurchaseItem(new ItemStack(Blocks.STRUCTURE_BLOCK, 1, 0), -1);
         //装飾 ITEM
         registry.addPurchaseItem(new ItemStack(Items.PAINTING), 20);

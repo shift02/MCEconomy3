@@ -11,11 +11,11 @@ public class MessageGuiId implements IMessageHandler<PacketGuiId, IMessage>{
 	@Override
 	public IMessage onMessage(PacketGuiId message, MessageContext ctx) {
 
-		EntityPlayerMP p = ctx.getServerHandler().playerEntity;
+		EntityPlayerMP p = ctx.getServerHandler().player;
 
 		int i = message.getData().getInteger("gui");
 
-		p.openGui(MCEconomy3.instance, i, p.worldObj, (int)p.posX, (int)p.posY, (int)p.posZ);
+		p.openGui(MCEconomy3.instance, i, p.world, (int)p.posX, (int)p.posY, (int)p.posZ);
 
 		return null;
 

@@ -35,15 +35,17 @@ public class SlotShopResult extends Slot {
         //par1ItemStack.onCrafting(this.thePlayer.worldObj, this.thePlayer, 0);
         //this.field_75231_g = 0;
         theShopInventory.resetSlots();
+
     }
 
     @Override
-    public void onPickupFromSlot(EntityPlayer par1EntityPlayer, ItemStack par2ItemStack) {
+    public ItemStack onTake(EntityPlayer par1EntityPlayer, ItemStack par2ItemStack) {
+
         this.onCrafting(par2ItemStack);
         //System.out.println("onPickupFromSlot");
-        int cost = theShop.getProductList(par1EntityPlayer.worldObj, par1EntityPlayer).get(theShopInventory.currentRecipeIndex).getCost(theShop, par1EntityPlayer.worldObj, par1EntityPlayer);
+        int cost = theShop.getProductList(par1EntityPlayer.world, par1EntityPlayer).get(theShopInventory.currentRecipeIndex).getCost(theShop, par1EntityPlayer.world, par1EntityPlayer);
 
-        if (par1EntityPlayer.worldObj.isRemote) {
+        if (par1EntityPlayer.world.isRemote) {
             MPManager.getInstance().reduceShopPlayerMP(par1EntityPlayer, cost, false);
         } else {
             MCEconomyAPI.reducePlayerMP(par1EntityPlayer, cost, false);
@@ -55,6 +57,9 @@ public class SlotShopResult extends Slot {
         theShopInventory.resetSlots();
 
         this.onSlotChanged();
+
+        return par2ItemStack;
+
 
     }
 

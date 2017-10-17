@@ -11,7 +11,7 @@ public class ShopButtonHandler implements IMessageHandler<PacketShopButton, IMes
 	@Override
 	public IMessage onMessage(PacketShopButton message, MessageContext ctx) {
 
-		Container container = ctx.getServerHandler().playerEntity.openContainer;
+		Container container = ctx.getServerHandler().player.openContainer;
 
     	if (container instanceof ContainerShop)
         {

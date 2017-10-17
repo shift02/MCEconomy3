@@ -57,12 +57,13 @@ public class ContainerShop extends Container {
         return super.slotClick(slotId, dragType, clickTypeIn, player);
     }
 
+    /*
     @Override
     protected void retrySlotClick(int par1, int par2, boolean par3, EntityPlayer par4EntityPlayer) {
         //this.slotClick(par1, par2, 1, par4EntityPlayer);
         //super.retrySlotClick(par1, par2, par3, par4EntityPlayer);
         this.merchantInventory.resetSlots();
-    }
+    }*/
 
     @Override
     public void onCraftMatrixChanged(IInventory par1IInventory) {

@@ -38,7 +38,7 @@ public class InventoryShop implements IInventory {
         if (this.theInventory[par1] != null) {
             ItemStack itemstack;
 
-            if (this.theInventory[par1].stackSize <= par2) {
+            if (this.theInventory[par1].getCount() <= par2) {
                 itemstack = this.theInventory[par1];
                 this.theInventory[par1] = null;
                 this.markDirty();
@@ -46,7 +46,7 @@ public class InventoryShop implements IInventory {
             } else {
                 itemstack = this.theInventory[par1].splitStack(par2);
 
-                if (this.theInventory[par1].stackSize == 0) {
+                if (this.theInventory[par1].getCount() == 0) {
                     this.theInventory[par1] = null;
                 }
 
@@ -78,8 +78,8 @@ public class InventoryShop implements IInventory {
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack) {
         this.theInventory[par1] = par2ItemStack;
 
-        if (par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit()) {
-            par2ItemStack.stackSize = this.getInventoryStackLimit();
+        if (par2ItemStack != null && par2ItemStack.getCount() > this.getInventoryStackLimit()) {
+            par2ItemStack.setCount( this.getInventoryStackLimit());
         }
 
         /*
@@ -91,7 +91,7 @@ public class InventoryShop implements IInventory {
 
     @Override
     public String getName() {
-        return theShop.getShopName(thePlayer.worldObj, thePlayer);
+        return theShop.getShopName(thePlayer.world, thePlayer);
     }
 
     @Override
@@ -110,7 +110,7 @@ public class InventoryShop implements IInventory {
     }
 
     @Override
-    public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
+    public boolean isUsableByPlayer(EntityPlayer par1EntityPlayer) {
         return true;//this.theMerchant.getCustomer() == par1EntityPlayer;
     }
 
@@ -136,7 +136,7 @@ public class InventoryShop implements IInventory {
 
     public void resetSlots() {
 
-        IProduct item = theShop.getProductList(thePlayer.worldObj, thePlayer).get(currentRecipeIndex);
+        IProduct item = theShop.getProductList(thePlayer.world, thePlayer).get(currentRecipeIndex);
 
         int money = MCEconomyAPI.getPlayerMP(thePlayer);
 
@@ -150,8 +150,8 @@ public class InventoryShop implements IInventory {
         	System.out.println("resetSlots0"+money);
         }*/
 
-        if (money >= item.getCost(theShop, thePlayer.worldObj, thePlayer) && item.canBuy(theShop, thePlayer.worldObj, thePlayer)) {
-            this.setInventorySlotContents(0, item.getItem(theShop, thePlayer.worldObj, thePlayer).copy());
+        if (money >= item.getCost(theShop, thePlayer.world, thePlayer) && item.canBuy(theShop, thePlayer.world, thePlayer)) {
+            this.setInventorySlotContents(0, item.getItem(theShop, thePlayer.world, thePlayer).copy());
             //System.out.println("resetSlots");
         } else {
             this.setInventorySlotContents(0, (ItemStack) null);
@@ -187,6 +187,11 @@ public class InventoryShop implements IInventory {
 	@Override
 	public void clear() {
 
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return false;
 	}
 
 }

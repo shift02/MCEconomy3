@@ -47,7 +47,7 @@ public class MPManager implements IMPManager {
             return 0;
         }
 
-        if (entityPlayer instanceof EntityPlayerMP && !entityPlayer.worldObj.isRemote) {
+        if (entityPlayer instanceof EntityPlayerMP && !entityPlayer.world.isRemote) {
 
             EntityPropertieMP p = getEntityPropertieMP(entityPlayer);
 
@@ -81,7 +81,7 @@ public class MPManager implements IMPManager {
             return 0;
         }
 
-        if (entityPlayer instanceof EntityPlayerMP && !entityPlayer.worldObj.isRemote) {
+        if (entityPlayer instanceof EntityPlayerMP && !entityPlayer.world.isRemote) {
 
             EntityPropertieMP p = getEntityPropertieMP(entityPlayer);
 

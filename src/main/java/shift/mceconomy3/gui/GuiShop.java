@@ -60,16 +60,16 @@ public class GuiShop extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         // this.fontRenderer.drawString(this.field_94082_v, this.xSize / 2 - this.fontRenderer.getStringWidth(this.field_94082_v) / 2, 6, 4210752);
-        this.fontRendererObj.drawString(I18n.format(theIProductList.getShopName(this.mc.theWorld, this.mc.thePlayer)), 28, this.ySize - 159 + 2, 4210752);
-        this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+        this.fontRenderer.drawString(I18n.format(theIProductList.getShopName(this.mc.world, this.mc.player)), 28, this.ySize - 159 + 2, 4210752);
+        this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 
-        ArrayList<IProduct> ProductItemlist = this.theIProductList.getProductList(this.mc.theWorld, this.mc.thePlayer);
+        ArrayList<IProduct> ProductItemlist = this.theIProductList.getProductList(this.mc.world, this.mc.player);
         if (ProductItemlist != null && !ProductItemlist.isEmpty()) {
             int i1 = this.currentRecipeIndex;
             IProduct ProductItem = ProductItemlist.get(i1);
 
-            this.fontRendererObj.drawString("Cost", 46, 25, 4210752);
-            this.fontRendererObj.drawString(ProductItem.getCost(theIProductList, this.mc.theWorld, this.mc.thePlayer) + " MP", 46, 34, 4210752);
+            this.fontRenderer.drawString("Cost", 46, 25, 4210752);
+            this.fontRenderer.drawString(ProductItem.getCost(theIProductList, this.mc.world, this.mc.player) + " MP", 46, 34, 4210752);
             //this.fontRenderer.drawString(I18n.getString(itemstack2.getDisplayName()), 45,  38, 4210752);
 
         }
@@ -79,7 +79,7 @@ public class GuiShop extends GuiContainer {
     @Override
     public void updateScreen() {
         super.updateScreen();
-        ArrayList<IProduct> ProductItemlist = this.theIProductList.getProductList(this.mc.theWorld, this.mc.thePlayer);
+        ArrayList<IProduct> ProductItemlist = this.theIProductList.getProductList(this.mc.world, this.mc.player);
 
         if (ProductItemlist != null) {
             this.nextProductButton.enabled = this.currentRecipeIndex < ProductItemlist.size() - 1;
@@ -114,16 +114,16 @@ public class GuiShop extends GuiContainer {
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 
-        ArrayList<IProduct> ProductItemlist = this.theIProductList.getProductList(this.mc.theWorld, this.mc.thePlayer);
+        ArrayList<IProduct> ProductItemlist = this.theIProductList.getProductList(this.mc.world, this.mc.player);
 
         if (ProductItemlist != null && !ProductItemlist.isEmpty()) {
             int i1 = this.currentRecipeIndex;
             IProduct roductItem = ProductItemlist.get(i1);
 
-            int money = MCEconomyAPI.getPlayerMP(mc.thePlayer);
+            int money = MCEconomyAPI.getPlayerMP(mc.player);
 
-            if (money < roductItem.getCost(theIProductList, this.mc.theWorld, this.mc.thePlayer)
-                    || !roductItem.canBuy(theIProductList, this.mc.theWorld, this.mc.thePlayer)) //merchantrecipe.func_82784_g())
+            if (money < roductItem.getCost(theIProductList, this.mc.world, this.mc.player)
+                    || !roductItem.canBuy(theIProductList, this.mc.world, this.mc.player)) //merchantrecipe.func_82784_g())
             {
                 this.mc.getTextureManager().bindTexture(merchantGuiTextures);
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -148,7 +148,7 @@ public class GuiShop extends GuiContainer {
         drawTexturedModalRect(k + 86 + 65 + a, l + 67, 0, 18, 9, 9);
         drawTexturedModalRect(k + 86 + 74 + a, l + 67, 9, 18, 9, 9);
 
-        int money = MCEconomyAPI.getPlayerMP(mc.thePlayer);
+        int money = MCEconomyAPI.getPlayerMP(mc.player);
 
         k += 86 + 56 + a;
 
@@ -163,7 +163,7 @@ public class GuiShop extends GuiContainer {
     @Override
     public void drawScreen(int par1, int par2, float par3) {
         super.drawScreen(par1, par2, par3);
-        ArrayList<IProduct> ProductItemlist = this.theIProductList.getProductList(this.mc.theWorld, this.mc.thePlayer);
+        ArrayList<IProduct> ProductItemlist = this.theIProductList.getProductList(this.mc.world, this.mc.player);
 
         if (ProductItemlist != null && !ProductItemlist.isEmpty()) {
             int k = (this.width - this.xSize) / 2;
@@ -173,7 +173,7 @@ public class GuiShop extends GuiContainer {
             GL11.glPushMatrix();
             //ItemStack itemstack = merchantrecipe.getItemToBuy();
             //ItemStack itemstack1 = merchantrecipe.getSecondItemToBuy();
-            ItemStack itemstack2 = ProductItem.getItem(theIProductList, this.mc.theWorld, this.mc.thePlayer);
+            ItemStack itemstack2 = ProductItem.getItem(theIProductList, this.mc.world, this.mc.player);
             RenderHelper.enableGUIStandardItemLighting();
             GL11.glDisable(GL11.GL_LIGHTING);
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
@@ -195,7 +195,7 @@ public class GuiShop extends GuiContainer {
             //itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), itemstack2, k + 17, l + 32);
 
             itemRender.renderItemAndEffectIntoGUI(itemstack2, k + 17, l + 32);
-            itemRender.renderItemOverlayIntoGUI(fontRendererObj, itemstack2, k + 17, l + 32, null);
+            itemRender.renderItemOverlayIntoGUI(fontRenderer, itemstack2, k + 17, l + 32, null);
             itemRender.zLevel = 0.0F;
             GL11.glDisable(GL11.GL_LIGHTING);
 

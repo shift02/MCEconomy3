@@ -7,10 +7,10 @@ import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -77,26 +77,26 @@ public class HUDMP {
         /*
         if (event.type == ElementType.AIR) {
         	//System.out.println("AIR");
-        
+
         	if (!AIR) {
-        
+
         		if (Cuont > 0) {
         			GuiIngameForge.right_height += (left_height - 19);
         		} else {
         			GuiIngameForge.right_height += (left_height - 29);
         		}
-        
+
         		AIR = true;
         	} else {
-        
+
         		if (Cuont > 0) {
         			GuiIngameForge.right_height -= (left_height - 19);
         		} else {
         			GuiIngameForge.right_height -= (left_height - 29);
         		}
-        
+
         	}
-        
+
         	AIR = false;
         }*/
 
@@ -117,8 +117,8 @@ public class HUDMP {
 
         int money = 0;
 
-        if (mc.thePlayer != null) {
-            money = MPManager.getEntityPropertieMP(mc.thePlayer).getMp();
+        if (mc.player != null) {
+            money = MPManager.getEntityPropertieMP(mc.player).getMp();
         }
 
         //金持ち
@@ -183,7 +183,7 @@ public class HUDMP {
         int left = width / 2 + 9;
         int top = height - GuiIngameForge.right_height;//left_height - 10 + air;
 
-        //int level = ForgeHooks.getTotalArmorValue(mc.thePlayer);
+        //int level = ForgeHooks.getTotalArmorValue(mc.player);
         //drawTexturedModalRect(left, top, 9, 0, 9, 9);
         //drawTexturedModalRect(left+65, top, 0, 18, 9, 9);
         //drawTexturedModalRect(left+74, top, 9, 18, 9, 9);
@@ -197,7 +197,7 @@ public class HUDMP {
 
         boolean p = false;
 
-        EntityPropertieMP pmp = MPManager.getEntityPropertieMP(mc.thePlayer);
+        EntityPropertieMP pmp = MPManager.getEntityPropertieMP(mc.player);
 
         if (pmp != null) {
 
@@ -259,8 +259,8 @@ public class HUDMP {
             drawTexturedModalRect(left, top + g, 9 * 10, 45 + pm + m, 9, 9 - g - m);
 
             Cuont -= 4;
-            if (Cuont <= 0 && mc.thePlayer != null) {
-                //NBTTagCompound nbt = mc.thePlayer.getEntityData();
+            if (Cuont <= 0 && mc.player != null) {
+                //NBTTagCompound nbt = mc.player.getEntityData();
                 //nbt.setInteger("moneyD",0);
                 Cuont = 0;
                 pmp.setMpDisplay(0);
@@ -280,7 +280,7 @@ public class HUDMP {
 
     /*public static void drawTexturedModalRect(int par1, int par2, int par3, int par4, int par5, int par6) {
         float zLevel = -90.0F;
-    
+
         float f = 0.00390625F;
         float f1 = 0.00390625F;
         Tessellator tessellator = Tessellator.instance;
@@ -298,7 +298,7 @@ public class HUDMP {
         float f = 0.00390625F;
         float f1 = 0.00390625F;
         Tessellator tessellator = Tessellator.getInstance();
-        VertexBuffer worldrenderer = tessellator.getBuffer();
+        BufferBuilder worldrenderer = tessellator.getBuffer();
         worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
         worldrenderer.pos((double) (x + 0), (double) (y + height), (double) zLevel)
                 .tex((double) ((float) (textureX + 0) * f), (double) ((float) (textureY + height) * f1)).endVertex();

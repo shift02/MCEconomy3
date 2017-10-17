@@ -30,7 +30,7 @@ public class GuiButtonMerchant extends GuiButton {
         if (this.visible) {
             par1Minecraft.getTextureManager().bindTexture(this.optionsBackground);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-            boolean flag = par2 >= this.xPosition && par3 >= this.yPosition && par2 < this.xPosition + this.width && par3 < this.yPosition + this.height;
+            boolean flag = par2 >= this.x && par3 >= this.y && par2 < this.x + this.width && par3 < this.y + this.height;
             int k = 0;
             int l = 176;
 
@@ -44,7 +44,7 @@ public class GuiButtonMerchant extends GuiButton {
                 k += this.height;
             }
 
-            this.drawTexturedModalRect(this.xPosition, this.yPosition, l, k, this.width, this.height);
+            this.drawTexturedModalRect(this.x, this.y, l, k, this.width, this.height);
         }
     }
 }
