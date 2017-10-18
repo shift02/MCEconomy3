@@ -350,6 +350,11 @@ public class HUDMP {
 
         if (i == -2) return;
 
+        if(list.size()==0) {
+        	index = -1;
+        	return;
+        }
+
         for (int j = 0; j < list.size(); j++) {
 
             if (list.get(j).endsWith(" MP") || list.get(j).endsWith("Not for sale")) {
@@ -366,10 +371,14 @@ public class HUDMP {
     @SubscribeEvent
     public void RenderTooltipEvent(RenderTooltipEvent.PostText event) {
 
+    	if(index==-1)return;
+
         int x = event.getX() - 1;
         int y = event.getY() + 1;
         ItemStack item = event.getStack();
         List<String> list = event.getLines();
+
+        if(list.size()==1)return;
 
         if (item == null) return;
 
