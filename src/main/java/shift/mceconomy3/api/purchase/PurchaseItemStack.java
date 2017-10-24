@@ -4,7 +4,6 @@ import net.minecraft.item.ItemStack;
 
 /**
  * Created by plusplus_F on 2016/03/29.
- * 前のバージョンとの互換性を保つためのクラス
  */
 public class PurchaseItemStack implements IPurchaseItem {
 
