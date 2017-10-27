@@ -44,13 +44,12 @@ public class PurchaseRegistry implements IPurchaseRegistry {
 
     @Override
     public int getPurchase(Object object) {
-        // TODO 自動生成されたメソッド・スタブ
+
         return 0;
     }
 
     @Override
     public void addPurchaseFluid(IPurchaseFluid purchaseFluid) {
-        // TODO 自動生成されたメソッド・スタブ
 
     }
 
