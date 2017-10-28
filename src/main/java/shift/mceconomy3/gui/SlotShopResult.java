@@ -7,8 +7,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import shift.mceconomy3.api.MCEconomyAPI;
+import shift.mceconomy3.api.event.ShopBuyEvent;
 import shift.mceconomy3.api.shop.IShop;
-import shift.mceconomy3.api.shop.ShopBuyEvent;
 import shift.mceconomy3.event.MPManager;
 
 public class SlotShopResult extends Slot {
