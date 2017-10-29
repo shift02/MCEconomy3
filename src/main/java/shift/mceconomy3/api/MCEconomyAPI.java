@@ -37,7 +37,7 @@ public class MCEconomyAPI {
 
     public static ISoundManager SoundManager;
 
-    public static IShopManager ShopManager;
+    public static IShopManager SHOP_MANAGER;
 
     static {
         //registerPurchaseItem();
@@ -101,7 +101,7 @@ public class MCEconomyAPI {
      * @return ShopID
      */
     public static int registerShop(IShop shop) {
-        return ShopManager.registerShop(shop);
+        return SHOP_MANAGER.registerShop(shop);
     }
 
     /**
@@ -110,7 +110,7 @@ public class MCEconomyAPI {
      * @return IShop
      */
     public static IShop getShop(int id) {
-        return ShopManager.getShop(id);
+        return SHOP_MANAGER.getShop(id);
     }
 
     /**
@@ -123,7 +123,7 @@ public class MCEconomyAPI {
      * @param z z軸
      */
     public static void openShopGui(int id, EntityPlayer player, World world, int x, int y, int z) {
-        ShopManager.openShopGui(id, player, world, x, y, z);
+        SHOP_MANAGER.openShopGui(id, player, world, x, y, z);
     }
 
     /**
@@ -131,7 +131,7 @@ public class MCEconomyAPI {
      * @param purchaseItem 登録するIPurchaseItemクラス
      */
     public static void addPurchaseItem(IPurchaseItem purchaseItem) {
-        ShopManager.addPurchaseItem(purchaseItem);
+        SHOP_MANAGER.addPurchaseItem(purchaseItem);
     }
 
     /**
@@ -140,7 +140,7 @@ public class MCEconomyAPI {
      * @param amount 価格  -1で非売品に設定出来ます
      */
     public static void addPurchaseItem(ItemStack PurchaseItem, int amount) {
-        ShopManager.addPurchaseItem(PurchaseItem, amount);
+        SHOP_MANAGER.addPurchaseItem(PurchaseItem, amount);
     }
 
     /**
@@ -149,7 +149,7 @@ public class MCEconomyAPI {
      * @param amount 価格  -1で非売品に設定出来ます
      */
     public static void addPurchaseItem(String oreName, int amount) {
-        ShopManager.addPurchaseItem(oreName, amount);
+        SHOP_MANAGER.addPurchaseItem(oreName, amount);
     }
 
     /**
@@ -158,7 +158,7 @@ public class MCEconomyAPI {
      * @return 価格
      */
     public static int getPurchase(ItemStack item) {
-        return ShopManager.getPurchase(item);
+        return SHOP_MANAGER.getPurchase(item);
     }
 
     /**
@@ -167,7 +167,7 @@ public class MCEconomyAPI {
      * @return 設定されていればtrue 非売品はfalseになります.
      */
     public static boolean hasPurchase(ItemStack item) {
-        return ShopManager.hasPurchase(item);
+        return SHOP_MANAGER.hasPurchase(item);
     }
 
     /**
@@ -176,7 +176,7 @@ public class MCEconomyAPI {
      * @param mp 価格(1mB)  -1で非売品に設定出来ます
      */
     public static void addPurchaseFluid(Fluid fluid, double mp) {
-        ShopManager.addPurchaseFluid(fluid, mp);
+        SHOP_MANAGER.addPurchaseFluid(fluid, mp);
     }
 
     /**
@@ -185,7 +185,7 @@ public class MCEconomyAPI {
      * @return 価格(1mB)
      */
     public static double getFluidPurchase(Fluid fluid) {
-        return ShopManager.getFluidPurchase(fluid);
+        return SHOP_MANAGER.getFluidPurchase(fluid);
     }
 
     /**
@@ -194,7 +194,7 @@ public class MCEconomyAPI {
      * @return 設定されていればtrue 非売品はfalseになります.
      */
     public static boolean hasFluidPurchase(Fluid fluid) {
-        return ShopManager.hasFluidPurchase(fluid);
+        return SHOP_MANAGER.hasFluidPurchase(fluid);
     }
 
     /**
@@ -212,26 +212,26 @@ public class MCEconomyAPI {
         addPurchaseFluid(FluidRegistry.LAVA, 0.01);
 
         //Entity
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityZombie.class, 2);
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntitySkeleton.class, 5);
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityCreeper.class, 6);
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityEnderman.class, 13);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityZombie.class, 2);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntitySkeleton.class, 5);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityCreeper.class, 6);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityEnderman.class, 13);
 
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntitySilverfish.class, 40);
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityWitch.class, 32);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntitySilverfish.class, 40);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityWitch.class, 32);
 
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityGhast.class, 24);
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityBlaze.class, 8);
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityPigZombie.class, 6);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityGhast.class, 24);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityBlaze.class, 8);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityPigZombie.class, 6);
 
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityPlayer.class, -1);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityPlayer.class, -1);
 
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityVillager.class, 22);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityVillager.class, 22);
 
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityBat.class, 300);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityBat.class, 300);
 
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityDragon.class, 7400);
-        MCEconomyAPI.ShopManager.addPurchaseEntity(EntityWither.class, 3600);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityDragon.class, 7400);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseEntity(EntityWither.class, 3600);
 
     }
 

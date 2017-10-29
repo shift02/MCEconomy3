@@ -13,7 +13,7 @@ public class MCEGuiHandler implements IGuiHandler {
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 
-        IShop shop = MCEconomyAPI.ShopManager.getShop(ID);
+        IShop shop = MCEconomyAPI.SHOP_MANAGER.getShop(ID);
 
         if (shop != null) {
 
@@ -29,7 +29,7 @@ public class MCEGuiHandler implements IGuiHandler {
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 
-        IShop shop = MCEconomyAPI.ShopManager.getShop(ID);
+        IShop shop = MCEconomyAPI.SHOP_MANAGER.getShop(ID);
 
         if (shop != null) {
 

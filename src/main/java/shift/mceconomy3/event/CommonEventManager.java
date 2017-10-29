@@ -117,16 +117,16 @@ public class CommonEventManager {
 
             EntityPlayerMP entityPlayer = (EntityPlayerMP) event.getSource().getImmediateSource();
 
-            if (MCEconomyAPI.ShopManager.hasEntityPurchase(event.getEntityLiving())) {
-                MCEconomyAPI.addPlayerMP(entityPlayer, MCEconomyAPI.ShopManager.getEntityPurchase(event.getEntityLiving()), false);
+            if (MCEconomyAPI.SHOP_MANAGER.hasEntityPurchase(event.getEntityLiving())) {
+                MCEconomyAPI.addPlayerMP(entityPlayer, MCEconomyAPI.SHOP_MANAGER.getEntityPurchase(event.getEntityLiving()), false);
                 //if (Config.sound) entityPlayer.worldObj.playSoundAtEntity(entityPlayer, "mceconomy2:coin", 0.6f, 0.8f);
             }
 
         } else if (event.getSource().getTrueSource() instanceof EntityPlayerMP) {
             EntityPlayerMP entityPlayer = (EntityPlayerMP) event.getSource().getTrueSource();
 
-            if (MCEconomyAPI.ShopManager.hasEntityPurchase(event.getEntityLiving())) {
-                MCEconomyAPI.addPlayerMP(entityPlayer, MCEconomyAPI.ShopManager.getEntityPurchase(event.getEntityLiving()), false);
+            if (MCEconomyAPI.SHOP_MANAGER.hasEntityPurchase(event.getEntityLiving())) {
+                MCEconomyAPI.addPlayerMP(entityPlayer, MCEconomyAPI.SHOP_MANAGER.getEntityPurchase(event.getEntityLiving()), false);
                 //if (Config.sound) entityPlayer.worldObj.playSoundAtEntity(entityPlayer, "mceconomy2:coin", 0.6f, 0.8f);
             }
         }

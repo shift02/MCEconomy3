@@ -65,7 +65,7 @@ public class MCEconomy3 {
 
         MCEconomyAPI.MPManager = MPManager.getInstance();
         MCEconomyAPI.SoundManager = new MCESoundManager();
-        MCEconomyAPI.ShopManager = new ShopManager();
+        MCEconomyAPI.SHOP_MANAGER = new ShopManager();
         MCEconomyAPI.registerPurchaseItem();
 
 
