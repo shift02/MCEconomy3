@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import shift.mceconomy3.api.purchase.IPurchaseItem;
+import shift.mceconomy3.api.purchase.IPurchaseRegistry;
 import shift.mceconomy3.api.shop.IShop;
 import shift.mceconomy3.api.shop.IShopManager;
 
@@ -38,6 +39,8 @@ public class MCEconomyAPI {
     public static ISoundManager SoundManager;
 
     public static IShopManager SHOP_MANAGER;
+
+    public static IPurchaseRegistry PurchaseRegistry;
 
     static {
         //registerPurchaseItem();
@@ -86,8 +89,6 @@ public class MCEconomyAPI {
     public static int getPlayerMP(EntityPlayer entityPlayer) {
         return MPManager.getPlayerMP(entityPlayer);
     }
-
-
 
     /*
      *--------------------------------------
@@ -203,9 +204,7 @@ public class MCEconomyAPI {
      */
     public static void registerPurchaseItem() {
 
-    	//Itemは shift.mceconomy3.api.purchase.PurchaseVanilla に移動
-
-
+        //Itemは shift.mceconomy3.api.purchase.PurchaseVanilla に移動
 
         //液体
         addPurchaseFluid(FluidRegistry.WATER, 0.0001);
