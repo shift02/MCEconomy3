@@ -1,7 +1,5 @@
 package shift.mceconomy3;
 
-import java.io.File;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -66,9 +64,8 @@ public class MCEconomy3 {
         MCEconomyAPI.MPManager = MPManager.getInstance();
         MCEconomyAPI.SoundManager = new MCESoundManager();
         MCEconomyAPI.SHOP_MANAGER = new ShopManager();
+        MCEconomyAPI.PurchaseRegistry = PurchaseManager.purchaseRegistry;
         MCEconomyAPI.registerPurchaseItem();
-
-
 
         PurchaseManager.setPurchaseItems(event.getAsmData());
 
