@@ -132,7 +132,7 @@ public class MCEconomyAPI {
      * @param purchaseItem 登録するIPurchaseItemクラス
      */
     public static void addPurchaseItem(IPurchaseItem purchaseItem) {
-        SHOP_MANAGER.addPurchaseItem(purchaseItem);
+        PurchaseRegistry.addPurchaseItem(purchaseItem);
     }
 
     /**
@@ -141,7 +141,7 @@ public class MCEconomyAPI {
      * @param amount 価格  -1で非売品に設定出来ます
      */
     public static void addPurchaseItem(ItemStack PurchaseItem, int amount) {
-        SHOP_MANAGER.addPurchaseItem(PurchaseItem, amount);
+        PurchaseRegistry.addPurchaseItem(PurchaseItem, amount);
     }
 
     /**
