@@ -150,7 +150,7 @@ public class MCEconomyAPI {
      * @param amount 価格  -1で非売品に設定出来ます
      */
     public static void addPurchaseItem(String oreName, int amount) {
-        SHOP_MANAGER.addPurchaseItem(oreName, amount);
+        PurchaseRegistry.addPurchaseItem(oreName, amount);
     }
 
     /**
