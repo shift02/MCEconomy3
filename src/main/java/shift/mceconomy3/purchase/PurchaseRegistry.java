@@ -17,21 +17,21 @@ public class PurchaseRegistry implements IPurchaseRegistry {
     @Override
     public void addPurchaseItem(IPurchaseItem purchaseItem) {
 
-        MCEconomyAPI.addPurchaseItem(purchaseItem);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseItem(purchaseItem);
 
     }
 
     @Override
     public void addPurchaseItem(ItemStack PurchaseItem, int amount) {
 
-        MCEconomyAPI.addPurchaseItem(PurchaseItem, amount);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseItem(PurchaseItem, amount);
 
     }
 
     @Override
     public void addPurchaseItem(String oreName, int amount) {
 
-        MCEconomyAPI.addPurchaseItem(oreName, amount);
+        MCEconomyAPI.SHOP_MANAGER.addPurchaseItem(oreName, amount);
 
     }
 
