@@ -45,7 +45,7 @@ public class PurchaseRegistry implements IPurchaseRegistry {
     @Override
     public int getPurchase(Object object) {
 
-        return 0;
+        return -1;
     }
 
     @Override
