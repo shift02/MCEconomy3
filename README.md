@@ -25,7 +25,7 @@ repositories {
 
 dependencies {
 
-    compile 'shift.mceconomy3:mceconomy3:1.0.3:dev'
+    compile 'shift.mceconomy3:mceconomy3:1.0.4:dev'
 }
 ```
 
