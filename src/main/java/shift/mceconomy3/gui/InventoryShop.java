@@ -21,6 +21,7 @@ public class InventoryShop implements IInventory {
     public InventoryShop(EntityPlayer par1EntityPlayer, IShop par2IMerchant) {
         this.thePlayer = par1EntityPlayer;
         this.theShop = par2IMerchant;
+        theInventory[0] = ItemStack.EMPTY;
     }
 
     @Override
@@ -35,40 +36,42 @@ public class InventoryShop implements IInventory {
 
     @Override
     public ItemStack decrStackSize(int par1, int par2) {
-        if (this.theInventory[par1] != null) {
+
+        if (!this.theInventory[par1].isEmpty()) {
             ItemStack itemstack;
 
             if (this.theInventory[par1].getCount() <= par2) {
                 itemstack = this.theInventory[par1];
-                this.theInventory[par1] = null;
+                this.theInventory[par1] = ItemStack.EMPTY;
                 this.markDirty();
                 return itemstack;
             } else {
                 itemstack = this.theInventory[par1].splitStack(par2);
 
                 if (this.theInventory[par1].getCount() == 0) {
-                    this.theInventory[par1] = null;
+                    this.theInventory[par1] = ItemStack.EMPTY;
                 }
 
                 this.markDirty();
                 return itemstack;
             }
         } else {
-            return null;
+            return ItemStack.EMPTY;
         }
     }
 
     @Override
     public ItemStack removeStackFromSlot(int par1) {
-        if (this.theInventory[par1] != null) {
+
+        if (!this.theInventory[par1].isEmpty()) {
             ItemStack itemstack = this.theInventory[par1];
-            this.theInventory[par1] = null;
+            this.theInventory[par1] = ItemStack.EMPTY;
             this.resetSlots();
             return itemstack;
 
         } else {
             this.resetSlots();
-            return null;
+            return ItemStack.EMPTY;
 
         }
 
@@ -78,8 +81,8 @@ public class InventoryShop implements IInventory {
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack) {
         this.theInventory[par1] = par2ItemStack;
 
-        if (par2ItemStack != null && par2ItemStack.getCount() > this.getInventoryStackLimit()) {
-            par2ItemStack.setCount( this.getInventoryStackLimit());
+        if (!par2ItemStack.isEmpty() && par2ItemStack.getCount() > this.getInventoryStackLimit()) {
+            par2ItemStack.setCount(this.getInventoryStackLimit());
         }
 
         /*
@@ -100,9 +103,10 @@ public class InventoryShop implements IInventory {
     }
 
     @Override
-	public ITextComponent getDisplayName() {
-		return (ITextComponent)(this.hasCustomName() ? new TextComponentString(this.getName()) : new TextComponentTranslation(this.getName(), new Object[0]));
-	}
+    public ITextComponent getDisplayName() {
+        return (ITextComponent) (this.hasCustomName() ? new TextComponentString(this.getName())
+                : new TextComponentTranslation(this.getName(), new Object[0]));
+    }
 
     @Override
     public int getInventoryStackLimit() {
@@ -115,11 +119,11 @@ public class InventoryShop implements IInventory {
     }
 
     @Override
-	public void openInventory(EntityPlayer player) {
+    public void openInventory(EntityPlayer player) {
     }
 
     @Override
-	public void closeInventory(EntityPlayer player) {
+    public void closeInventory(EntityPlayer player) {
     }
 
     @Override
@@ -150,11 +154,12 @@ public class InventoryShop implements IInventory {
         	System.out.println("resetSlots0"+money);
         }*/
 
-        if (money >= item.getCost(theShop, thePlayer.world, thePlayer) && item.canBuy(theShop, thePlayer.world, thePlayer)) {
+        if (money >= item.getCost(theShop, thePlayer.world, thePlayer)
+                && item.canBuy(theShop, thePlayer.world, thePlayer)) {
             this.setInventorySlotContents(0, item.getItem(theShop, thePlayer.world, thePlayer).copy());
             //System.out.println("resetSlots");
         } else {
-            this.setInventorySlotContents(0, (ItemStack) null);
+            this.setInventorySlotContents(0, ItemStack.EMPTY);
 
             //System.out.println("resetSlots2");
         }
@@ -167,31 +172,29 @@ public class InventoryShop implements IInventory {
         this.resetSlots();
     }
 
+    @Override
+    public int getField(int id) {
+        return 0;
+    }
 
+    @Override
+    public void setField(int id, int value) {
 
-	@Override
-	public int getField(int id) {
-		return 0;
-	}
+    }
 
-	@Override
-	public void setField(int id, int value) {
+    @Override
+    public int getFieldCount() {
+        return 0;
+    }
 
-	}
+    @Override
+    public void clear() {
 
-	@Override
-	public int getFieldCount() {
-		return 0;
-	}
+    }
 
-	@Override
-	public void clear() {
-
-	}
-
-	@Override
-	public boolean isEmpty() {
-		return false;
-	}
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
 
 }
