@@ -11,7 +11,8 @@ import shift.mceconomy3.MCEconomy3;
 
 @SideOnly(Side.CLIENT)
 public class GuiButtonMerchant extends GuiButton {
-    public static final ResourceLocation optionsBackground = new ResourceLocation(MCEconomy3.MODID, "textures/guis/villager.png");
+    public static final ResourceLocation optionsBackground = new ResourceLocation(MCEconomy3.MODID,
+            "textures/guis/villager.png");
     /**
      * If true, then next page button will face to right, if false then next page button will face to left.
      */
@@ -26,11 +27,13 @@ public class GuiButtonMerchant extends GuiButton {
     /**
      * Draws this button to the screen.
      */
-    public void drawButton(Minecraft par1Minecraft, int par2, int par3) {
+    @Override
+    public void drawButton(Minecraft par1Minecraft, int par2, int par3, float partialTicks) {
         if (this.visible) {
             par1Minecraft.getTextureManager().bindTexture(this.optionsBackground);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-            boolean flag = par2 >= this.x && par3 >= this.y && par2 < this.x + this.width && par3 < this.y + this.height;
+            boolean flag = par2 >= this.x && par3 >= this.y && par2 < this.x + this.width
+                    && par3 < this.y + this.height;
             int k = 0;
             int l = 176;
 
