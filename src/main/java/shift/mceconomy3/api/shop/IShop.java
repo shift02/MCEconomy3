@@ -20,6 +20,12 @@ import shift.mceconomy3.api.MCEconomyAPI;
 public interface IShop {
 
     /**
+     * ユニーク名
+     * @return
+     */
+    public String getName();
+
+    /**
      * ショップの名前 <br>
      * GUIで表示する時はI18n.format()を使ってローカライズされます
      * @return ショップの名前

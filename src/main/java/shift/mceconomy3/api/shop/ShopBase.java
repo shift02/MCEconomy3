@@ -16,6 +16,11 @@ public class ShopBase implements IShop {
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
     public String getShopName(World world, EntityPlayer player) {
         return name;
     }
