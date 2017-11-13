@@ -115,6 +115,15 @@ public class MCEconomyAPI {
     }
 
     /**
+     * getShopID IShopからIDを取得
+     * @param shop
+     * @return ShopID
+     */
+    public static int getShopID(IShop shop) {
+        return SHOP_MANAGER.getShopID(shop);
+    }
+
+    /**
      * openShopGui ShopのGUIを開く
      * @param id ShopID
      * @param player プレイヤー

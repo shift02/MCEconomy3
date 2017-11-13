@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.annotation.Nullable;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import shift.mceconomy3.api.MCEconomyAPI;
 
@@ -23,7 +24,7 @@ public interface IShop {
      * ユニーク名
      * @return
      */
-    public String getName();
+    public ResourceLocation getRegistryName();
 
     /**
      * ショップの名前 <br>

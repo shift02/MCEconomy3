@@ -5,9 +5,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 
+import com.google.common.collect.Maps;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
@@ -25,6 +28,7 @@ public class ShopManager implements IShopManager {
     //private final ArrayList<IProductList> ProductList = new ArrayList<IProductList>();
 
     private final ArrayList<IShop> shopList = new ArrayList<IShop>();
+    private final HashMap<ResourceLocation, Integer> shopIDs = Maps.newHashMap();
 
     private static final ArrayList<IPurchaseItem> purchaseItems = new ArrayList<IPurchaseItem>();
     private static IPurchaseItem cachedItem;
@@ -49,7 +53,11 @@ public class ShopManager implements IShopManager {
 
         shopList.add(list);
 
-        return shopList.indexOf(list);
+        int index = shopList.indexOf(list);
+
+        shopIDs.put(list.getRegistryName(), Integer.valueOf(index));
+
+        return index;
 
     }
 
@@ -63,6 +71,11 @@ public class ShopManager implements IShopManager {
     }
 
     @Override
+    public int getShopID(IShop list) {
+        return shopIDs.get(list.getRegistryName());
+    }
+
+    @Override
     public ArrayList<IShop> getShops() {
         return shopList;
     }
@@ -73,12 +86,12 @@ public class ShopManager implements IShopManager {
     public void openShopGui(int id, EntityPlayer player, World world, int x, int y, int z) {
 
         /*OpenShopGuiEvent event = new OpenShopGuiEvent(player, id, world, x, y, z);
-
+        
         if (MinecraftForge.EVENT_BUS.post(event))
         {
             return;
         }
-
+        
         if (event.getResult() == Result.ALLOW)
         {
             return ;
@@ -148,7 +161,8 @@ public class ShopManager implements IShopManager {
 
         }
 
-        if (purchaseItem == null) return -2;
+        if (purchaseItem == null)
+            return -2;
 
         int old = purchaseItem.getPrice(item);
 
@@ -157,7 +171,8 @@ public class ShopManager implements IShopManager {
 
         MinecraftForge.EVENT_BUS.post(event);
 
-        if (old != event.getNewPrice()) return event.getNewPrice();
+        if (old != event.getNewPrice())
+            return event.getNewPrice();
 
         return old;
     }
@@ -170,7 +185,8 @@ public class ShopManager implements IShopManager {
 
     @Override
     public void addPurchaseFluid(Fluid fluid, double mp) {
-        if (fluid == null) return;
+        if (fluid == null)
+            return;
         //purchaseFluidList.put(fluid.getID(), mp);
     }
 
@@ -184,7 +200,7 @@ public class ShopManager implements IShopManager {
         //    return -2;
         //}
 
-    	return -1;
+        return -1;
 
         //return purchaseFluidList.get(fluid.getID());
     }

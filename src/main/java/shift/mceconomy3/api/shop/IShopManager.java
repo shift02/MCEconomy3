@@ -19,6 +19,8 @@ public interface IShopManager {
 
     public IShop getShop(int id);
 
+    public int getShopID(IShop list);
+
     public ArrayList<IShop> getShops();
 
     public void openShopGui(int id, EntityPlayer player, World world, int x, int y, int z);
