@@ -72,7 +72,14 @@ public class ShopManager implements IShopManager {
 
     @Override
     public int getShopID(IShop list) {
-        return shopIDs.get(list.getRegistryName());
+
+        Integer id = shopIDs.get(list.getRegistryName());
+
+        if (id == null) {
+            throw new IllegalStateException("It is an unregistered shop! Name: " + list.getRegistryName());
+        }
+
+        return id;
     }
 
     @Override
@@ -102,6 +109,13 @@ public class ShopManager implements IShopManager {
         } else {
             player.openGui(MCEconomy3.instance, id, world, x, y, z);
         }
+
+    }
+
+    @Override
+    public void openShopGui(IShop list, EntityPlayer player, World world, int x, int y, int z) {
+
+        this.openShopGui(this.getShopID(list), player, world, x, y, z);
 
     }
 

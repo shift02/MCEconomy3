@@ -25,6 +25,8 @@ public interface IShopManager {
 
     public void openShopGui(int id, EntityPlayer player, World world, int x, int y, int z);
 
+    public void openShopGui(IShop list, EntityPlayer player, World world, int x, int y, int z);
+
     public void addPurchaseItem(IPurchaseItem purchaseItem);
 
     public void addPurchaseItem(ItemStack par1ItemStack, Integer par2Integer);
