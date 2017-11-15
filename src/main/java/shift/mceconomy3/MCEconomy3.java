@@ -12,7 +12,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import shift.mceconomy3.api.MCEconomyAPI;
 import shift.mceconomy3.api.money.CapabilityMoneyStorage;
-import shift.mceconomy3.api.shop.IShop;
 import shift.mceconomy3.api.shop.ProductBase;
 import shift.mceconomy3.api.shop.ShopBase;
 import shift.mceconomy3.event.CommonEventManager;
@@ -39,9 +38,10 @@ public class MCEconomy3 {
     @SidedProxy(clientSide = "shift.mceconomy3.proxy.ClientProxy", serverSide = "shift.mceconomy3.proxy.CommonProxy")
     public static CommonProxy proxy;
 
-    public static int testShop;
+    public static ShopBase testShop;
+    public static int testShopID;
 
-    public static boolean shopTest = false;
+    public static boolean shopTest = true;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -98,10 +98,10 @@ public class MCEconomy3 {
         //		MCEconomyAPI.ShopManager.getProductList(i).addItemProduct(new ProductItem(new ItemStack(Items.iron_ingot, 1), 30));
         //		MCEconomyAPI.ShopManager.getProductList(i).addItemProduct(new ProductItem(new ItemStack(Blocks.iron_block, 1), 130));
 
-        IShop shop = new ShopBase("test");
-        testShop = MCEconomyAPI.registerShop(shop);
-        shop.addProduct(new ProductBase(new ItemStack(Items.APPLE), 500));
-        shop.addProduct(new ProductBase(new ItemStack(Items.STICK), 500));
+        testShop = new ShopBase("test");
+        testShopID = MCEconomyAPI.registerShop(testShop);
+        testShop.addProduct(new ProductBase(new ItemStack(Items.APPLE), 500));
+        testShop.addProduct(new ProductBase(new ItemStack(Items.STICK), 500));
 
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new MCEGuiHandler());
 

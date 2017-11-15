@@ -125,6 +125,7 @@ public class MCEconomyAPI {
 
     /**
      * openShopGui ShopのGUIを開く
+     * @deprecated IShopを使用する方を使ってください
      * @param id ShopID
      * @param player プレイヤー
      * @param world ワールド
@@ -132,8 +133,22 @@ public class MCEconomyAPI {
      * @param y y軸
      * @param z z軸
      */
+    @Deprecated
     public static void openShopGui(int id, EntityPlayer player, World world, int x, int y, int z) {
         SHOP_MANAGER.openShopGui(id, player, world, x, y, z);
+    }
+
+    /**
+     * openShopGui ShopのGUIを開く
+     * @param shop Shop
+     * @param player プレイヤー
+     * @param world ワールド
+     * @param x x軸
+     * @param y y軸
+     * @param z z軸
+     */
+    public static void openShopGui(IShop shop, EntityPlayer player, World world, int x, int y, int z) {
+        SHOP_MANAGER.openShopGui(shop, player, world, x, y, z);
     }
 
     /**
