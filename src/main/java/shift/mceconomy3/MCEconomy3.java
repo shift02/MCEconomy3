@@ -41,7 +41,7 @@ public class MCEconomy3 {
     public static ShopBase testShop;
     public static int testShopID;
 
-    public static boolean shopTest = true;
+    public static boolean shopTest = false;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
