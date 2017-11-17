@@ -18,10 +18,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import shift.mceconomy3.api.purchase.IPurchaseItem;
-import shift.mceconomy3.api.purchase.IPurchaseRegistry;
 import shift.mceconomy3.api.shop.IShop;
 import shift.mceconomy3.api.shop.IShopManager;
+import shift.mceconomy3.api.shop.purchase.IPurchaseItem;
+import shift.mceconomy3.api.shop.purchase.IPurchaseRegistry;
 
 /**
  * MCEconomyのAPI <br>

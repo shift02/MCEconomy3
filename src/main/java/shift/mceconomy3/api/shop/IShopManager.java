@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
-import shift.mceconomy3.api.purchase.IPurchaseItem;
+import shift.mceconomy3.api.shop.purchase.IPurchaseItem;
 
 /**
  * Shopを管理するClass

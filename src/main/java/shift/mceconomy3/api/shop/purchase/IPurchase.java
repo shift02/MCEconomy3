@@ -1,4 +1,4 @@
-package shift.mceconomy3.api.purchase;
+package shift.mceconomy3.api.shop.purchase;
 
 /**
  * ItemStackやEntityに値段設定をするクラス

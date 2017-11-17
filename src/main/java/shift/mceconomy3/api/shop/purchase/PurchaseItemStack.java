@@ -1,4 +1,4 @@
-package shift.mceconomy3.api.purchase;
+package shift.mceconomy3.api.shop.purchase;
 
 import net.minecraft.item.ItemStack;
 

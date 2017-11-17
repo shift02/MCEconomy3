@@ -15,11 +15,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import shift.mceconomy3.api.event.PriceEvent;
-import shift.mceconomy3.api.purchase.IPurchaseItem;
-import shift.mceconomy3.api.purchase.PurchaseItemStack;
-import shift.mceconomy3.api.purchase.PurchaseOreDictionary;
 import shift.mceconomy3.api.shop.IShop;
 import shift.mceconomy3.api.shop.IShopManager;
+import shift.mceconomy3.api.shop.purchase.IPurchaseItem;
+import shift.mceconomy3.api.shop.purchase.PurchaseItemStack;
+import shift.mceconomy3.api.shop.purchase.PurchaseOreDictionary;
 import shift.mceconomy3.packet.PacketGuiId;
 import shift.mceconomy3.packet.PacketHandler;
 

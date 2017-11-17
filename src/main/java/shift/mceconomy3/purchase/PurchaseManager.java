@@ -10,8 +10,8 @@ import java.util.Set;
 import javax.annotation.Nonnull;
 
 import net.minecraftforge.fml.common.discovery.ASMDataTable;
-import shift.mceconomy3.api.purchase.IPurchaseRegistry;
-import shift.mceconomy3.api.purchase.PurchaseItems;
+import shift.mceconomy3.api.shop.purchase.IPurchaseRegistry;
+import shift.mceconomy3.api.shop.purchase.PurchaseItems;
 
 public class PurchaseManager {
 

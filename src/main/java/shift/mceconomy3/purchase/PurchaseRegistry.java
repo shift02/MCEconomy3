@@ -5,10 +5,10 @@ import com.google.common.collect.Multimap;
 
 import net.minecraft.item.ItemStack;
 import shift.mceconomy3.api.MCEconomyAPI;
-import shift.mceconomy3.api.purchase.IPurchase;
-import shift.mceconomy3.api.purchase.IPurchaseFluid;
-import shift.mceconomy3.api.purchase.IPurchaseItem;
-import shift.mceconomy3.api.purchase.IPurchaseRegistry;
+import shift.mceconomy3.api.shop.purchase.IPurchase;
+import shift.mceconomy3.api.shop.purchase.IPurchaseFluid;
+import shift.mceconomy3.api.shop.purchase.IPurchaseItem;
+import shift.mceconomy3.api.shop.purchase.IPurchaseRegistry;
 
 public class PurchaseRegistry implements IPurchaseRegistry {
 
