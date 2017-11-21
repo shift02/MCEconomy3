@@ -1,4 +1,4 @@
-package shift.mceconomy3.api.shop;
+package shift.mceconomy3.api.event;
 
 import java.util.List;
 

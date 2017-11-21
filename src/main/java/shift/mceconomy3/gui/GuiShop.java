@@ -16,9 +16,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import shift.mceconomy3.MCEconomy3;
 import shift.mceconomy3.api.MCEconomyAPI;
+import shift.mceconomy3.api.event.OpenShopGuiEvent;
 import shift.mceconomy3.api.shop.IProduct;
 import shift.mceconomy3.api.shop.IShop;
-import shift.mceconomy3.api.shop.OpenShopGuiEvent;
 import shift.mceconomy3.packet.PacketHandler;
 import shift.mceconomy3.packet.PacketShopButton;
 
