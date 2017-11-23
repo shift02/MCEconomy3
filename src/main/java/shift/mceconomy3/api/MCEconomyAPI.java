@@ -264,6 +264,7 @@ public class MCEconomyAPI {
      *  Sound
      *--------------------------------------
      */
+    //未実装
     public static void playCoinSoundEffect(World world, int x, int y, int z) {
         SoundManager.playCoinSoundEffect(world, x, y, z);
     }
