@@ -41,7 +41,7 @@ public class MCEconomyAPI {
     public static IShopManager SHOP_MANAGER;
 
     //TODO ( っ'ω'c)
-    public static IPurchaseRegistry PurchaseRegistry;
+    public static IPurchaseRegistry PURCHA_SEREGISTRY;
 
     static {
         //registerPurchaseItem();
