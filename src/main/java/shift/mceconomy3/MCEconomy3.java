@@ -62,7 +62,7 @@ public class MCEconomy3 {
         PacketHandler.init(event);
 
         MCEconomyAPI.MPManager = MPManager.getInstance();
-        MCEconomyAPI.SoundManager = new MCESoundManager();
+        MCEconomyAPI.SOUND_MANAGER = new MCESoundManager();
         MCEconomyAPI.SHOP_MANAGER = new ShopManager();
         MCEconomyAPI.PURCHA_SEREGISTRY = PurchaseManager.purchaseRegistry;
         MCEconomyAPI.registerPurchaseItem();

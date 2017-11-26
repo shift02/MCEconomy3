@@ -36,7 +36,7 @@ public class MCEconomyAPI {
 
     public static IMPManager MPManager;
 
-    public static ISoundManager SoundManager;
+    public static ISoundManager SOUND_MANAGER;
 
     public static IShopManager SHOP_MANAGER;
 
@@ -265,8 +265,9 @@ public class MCEconomyAPI {
      *--------------------------------------
      */
     //未実装
+    @Deprecated
     public static void playCoinSoundEffect(World world, int x, int y, int z) {
-        SoundManager.playCoinSoundEffect(world, x, y, z);
+        SOUND_MANAGER.playCoinSoundEffect(world, x, y, z);
     }
 
 }
