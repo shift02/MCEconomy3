@@ -7,13 +7,13 @@ Add Economy to Minecraft
 
 ## Overview 概要
 
-API to add the concept of economy in Minecraft
+API to add the concept of economy in Minecraft.
 
 Minecraftに経済の概念を追加するAPI
 
 ## Dependency 依存関係(開発環境に追加する)
 
-Please describe the following in build.gradle
+Please describe the following in build.gradle.
 
 build.gradleに以下を記述する
 
