@@ -3,7 +3,7 @@
 ![Minecraft version 1.12.2](https://img.shields.io/badge/mc%20version-1.12.2-brightgreen.svg)
 [![MMPL_J](https://img.shields.io/badge/license-MMPL__%20J-blue.svg)](http://tsoft-web.com/nokiyen/minecraft/modding/MMPL_J)
 
-Add Economy to Minecraft
+Add Economy to Minecraft.
 
 ## Overview 概要
 
