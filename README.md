@@ -3,17 +3,17 @@
 ![Minecraft version 1.12.2](https://img.shields.io/badge/mc%20version-1.12.2-brightgreen.svg)
 [![MMPL_J](https://img.shields.io/badge/license-MMPL__%20J-blue.svg)](http://tsoft-web.com/nokiyen/minecraft/modding/MMPL_J)
 
-Add Economy to Minecraft.
+Add Economy to Minecraft
 
 ## Overview 概要
 
-API to add the concept of economy in Minecraft.
+API to add the concept of economy in Minecraft
 
 Minecraftに経済の概念を追加するAPI
 
 ## Dependency 依存関係(開発環境に追加する)
 
-Please describe the following in build.gradle.
+Please describe the following in build.gradle
 
 build.gradleに以下を記述する
 
@@ -25,7 +25,7 @@ repositories {
 
 dependencies {
 
-    compile 'shift.mceconomy3:mceconomy3:1.1.2:dev'
+    compile 'shift.mceconomy3:mceconomy3:1.1.1:dev'
 }
 ```
 
