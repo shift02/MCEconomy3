@@ -76,28 +76,6 @@ public class MCEconomy3 {
 
         MCEItems.initItem();
 
-        /*
-        MCEconomyAPI.MPManager = MPManager.getInstance();
-        MCEconomyAPI.SoundManager = new MCESoundManager();
-        MCEconomyAPI.ShopManager = new ShopManager();
-        MCEconomyAPI.registerPurchaseItem();
-        */
-
-        //		int i = MCEconomyAPI.ShopManager.registerProductList(
-        //
-        //				new ProductList() {
-        //
-        //					@Override
-        //					public String getProductListName() {
-        //						return "[MCEconomy] Sample";
-        //					}
-        //
-        //				});
-        //
-        //		MCEconomyAPI.ShopManager.getProductList(i).addItemProduct(new ProductItem(new ItemStack(Items.stick, 1), 10));
-        //		MCEconomyAPI.ShopManager.getProductList(i).addItemProduct(new ProductItem(new ItemStack(Items.iron_ingot, 1), 30));
-        //		MCEconomyAPI.ShopManager.getProductList(i).addItemProduct(new ProductItem(new ItemStack(Blocks.iron_block, 1), 130));
-
         testShop = new ShopBase("test");
         testShopID = MCEconomyAPI.registerShop(testShop);
         testShop.addProduct(new ProductBase(new ItemStack(Items.APPLE), 500));
