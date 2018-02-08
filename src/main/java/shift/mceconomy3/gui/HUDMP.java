@@ -341,6 +341,8 @@ public class HUDMP {
     @SubscribeEvent
     public void RenderTooltipEvent(RenderTooltipEvent.PostBackground event) {
 
+        index = -1;
+
         ItemStack item = event.getStack();
         List<String> list = event.getLines();
 
